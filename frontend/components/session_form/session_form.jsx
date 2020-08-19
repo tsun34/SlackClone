@@ -36,17 +36,33 @@ class SessionForm extends React.Component{
     }
 
     render(){
+        const linkText = (this.props.formType == 'Sign Up') ? 'Already have an account?' : 'Looking to create an account instead?'; 
         return (
-            <form onSubmit={this.handleSubmit}>
-                {this.renderErrors()}
-                <h1>{this.props.formType}</h1>
-                <label>Email</label>
-                <input type="text" value={this.state.email} onChange={this.handleUpdate('email')}/>
-                <label>Password</label>
-                <input type="password" value={this.state.password} onChange={this.handleUpdate('password')}/>
-                <button type="submit">{this.props.formType}</button>
-                {this.props.navLink}
-            </form>
+            <div class="session-page">
+                <img src="assets/Slant-white.png" alt="slant-logo" class='session-page-logo'/>
+                <form class='session-form' onSubmit={this.handleSubmit}>
+                    {this.renderErrors()}
+
+                    <h1 class='session-form-title'>{this.props.formType} to your workspace</h1>
+                    <p class='session-form-subtitle'>Enter your email and password</p>
+                    <div class='session-input'>
+                        <label>Email</label>
+                        <input type="text" value={this.state.email} onChange={this.handleUpdate('email')}/>
+                    </div>
+                    <div class='session-input'>
+                        <label>Password</label>
+                        <input type="password" value={this.state.password} onChange={this.handleUpdate('password')}/>
+                    </div>
+                    <button class='session-submit' type="submit">Continue</button>
+                    <div class='session-links'>
+                        <p>{linkText}</p>
+                        <span>
+                            {this.props.navLink}
+                        </span>
+                    </div>
+                </form>
+
+            </div>
         )
     }
 

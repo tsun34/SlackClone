@@ -1,3 +1,88 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.session-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.session-page-logo{
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.session-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.session-form-title{
+    font-size: 48px;
+    font-style: bold;
+    font-family: 'Pangolin';
+    margin-bottom: 10px;
+}
+
+
+.session-form-subtitle{
+    color: gray;
+    font-size: 18px;
+    font-style: normal;
+    font-family: 'Pangolin';
+    margin-bottom: 32px;
+}
+
+.session-input{
+    margin-bottom: 16px;
+    padding: 12px;
+    font-family: 'Lato';
+    font-size: 18px;
+    line-height: 1.33;
+}
+
+.session-input > label{
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.session-input > input{
+    padding: 11px 5px;
+    border: solid black 1px;
+    border-radius: 4px;
+}
+
+.session-submit{
+    background-color: #621d35; //$wine
+    color: white;
+    font-family: 'Lato';
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 4px;
+    width: 400px;
+    height: 40px;
+
+}
+
+.session-links{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.session-links > p{
+    color: gray;
+    font-family: 'Lato';
+    margin-right: 5px;
+}
+
+.session-links > span{
+    color: #1264a3;
+    font-weight: bold;
+    font-family: 'Lato';
+}
