@@ -2,17 +2,27 @@ import * as APIUtil from '../util/session_api_util';
 
 // thunk action creator, takes in a user object
 export const login = (user) => (dispatch) => {
-    return APIUtil.login(user).then((user) => (dispatch(receiveCurrentUser(user))), errors => (dispatch(receiveErrors(errors.responseJSON))));
+    return APIUtil.login(user).then((user) => (
+        dispatch(receiveCurrentUser(user))
+        ), errors => (
+            dispatch(receiveErrors(errors.responseJSON))
+            ));
 };
 
 // thunk action creator 
 export const logout = () => (dispatch) =>{
-    return APIUtil.logout().then(() => (dispatch(logoutCurrentUser())), errors => (dispatch(receiveErrors(errors.responseJSON))));
+    return APIUtil.logout().then((user) => (
+        dispatch(logoutCurrentUser())
+        ));
 };
 
 // thunk action creator 
 export const signup = (user) => (dispatch) => {
-    return APIUtil.signup(user).then((user) => (dispatch(receiveCurrentUser(user))), errors => (dispatch(receiveErrors(errors.responseJSON))));
+    return APIUtil.signup(user).then((user) => (
+        dispatch(receiveCurrentUser(user))
+        ), errors => (
+            dispatch(receiveErrors(errors.responseJSON))
+            ));
 };
 
 // regular action creator 

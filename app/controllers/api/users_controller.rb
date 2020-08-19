@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-
+    
     def create
         #user signup
         @user = User.new(user_params)
@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
         puts (@user)
         if @user.save
             login(@user)
-            render json: ['User logged in successfully']
+            render 'api/users/show'#json: ['User logged in successfully']
         else 
             render json: @user.errors.full_messages, status: 422
         end

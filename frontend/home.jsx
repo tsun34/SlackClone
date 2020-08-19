@@ -1,21 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
-// import {signup, login, logout} from './util/session_api_util';
-// import { receiveCurrentUser } from "./actions/session_actions";
+import Root from './components/root';
+import {login, logout, signup} from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // console.log('content loaded :)');
 
-    // window.signup = signup;
-    // window.login = login;
-    // window.logout = logout;
     const store = configureStore();
     const rootEl = document.getElementById('root');
 
-    // window.getState = store.getState;
-    // window.dispatch = store.dispatch;
-    // window.receiveCurrentUser = receiveCurrentUser;
+    // TESTING START
+    window.login = login;
+    window.logout = logout;
+    window.signup = signup;
+    window.getState = store.getState;
+    window.dispatch = store.dispatch;
+    // TESTING END
 
-    ReactDOM.render(<h1>Slant home page</h1>, rootEl);
+    ReactDOM.render(<Root store={store} />, rootEl);
 });
