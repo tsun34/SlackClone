@@ -14,16 +14,16 @@ class Greeting extends React.Component{
     render(){
         const user = this.props.currentUser;
         const personalGreeting = () => (
-            <div>
+            <nav class='home-nav'>
                 <h2>Hi, {user.full_name}</h2>
-                <button onClick={this.handleLogout}>Log Out</button>
-            </div>
+                <button onClick={this.handleLogout}>Log Out</button>div
+            </nav>
         );
         const sessionLinks = () => (
-            <div>
+            <nav>
                 <Link to='/signup'>Sign Up</Link>
                 <Link to='/login'>Log In</Link>
-            </div>
+            </nav>
         );
         
         return user ? personalGreeting() : sessionLinks();

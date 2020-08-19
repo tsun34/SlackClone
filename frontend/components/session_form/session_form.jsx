@@ -39,7 +39,7 @@ class SessionForm extends React.Component{
         const linkText = (this.props.formType == 'Sign Up') ? 'Already have an account?' : 'Looking to create an account instead?'; 
         return (
             <div class="session-page">
-                <img src="assets/Slant-white.png" alt="slant-logo" class='session-page-logo'/>
+                <img src={window.slantWhiteURL} alt="slant-logo" class='session-page-logo'/>
                 <form class='session-form' onSubmit={this.handleSubmit}>
                     {this.renderErrors()}
 
