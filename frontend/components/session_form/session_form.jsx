@@ -43,13 +43,23 @@ class SessionForm extends React.Component{
         return errorList;
     }
 
+    componentDidMount(){
+        this.props.receiveErrors([])
+    }
+
+    // componentDidUpdate(prevProps){
+    //     if (prevProps.match.params.path != this.props.match.params.path){
+    //         this.props.receiveErrors([])
+    //     }
+    // }
+
     render(){
         const linkText = (this.props.formType == 'Sign Up') ? 'Already have an account?' : 'Looking to create an account instead?'; 
         return (
             <div className="session-page">
                 <img src={window.slantWhiteURL} alt="slant-logo" className='session-page-logo'/>
                 <form className='session-form' onSubmit={this.handleSubmit}>
-                    { (this.props.errors.length)>0? this.renderErrors() : ''}
+                    { (this.props.errors.length)>0? this.renderErrors() : null}
                     <h1 className='session-form-title'>{this.props.formType} to your workspace</h1>
                     <p className='session-form-subtitle'>Enter your email and password</p>
                     <div className='session-input'>
