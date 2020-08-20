@@ -6,9 +6,9 @@ const SlantHome = () => (
         <nav className='home-nav'>
             <ul className='home-nav-info'>
                 <li><Link to='/'> <img className='home-nav-logo' src={window.slantWhiteURL} alt="slant logo"/></Link></li>                
-                <li><link rel="stylesheet" href="#"/>Why Slant?</li>
-                <li><link rel="stylesheet" href="#"/>Github</li>
-                <li><link rel="stylesheet" href="#"/>Linkedin</li>
+                <li><a href="#">Why Slant?</a></li>
+                <li><a href="#">Github</a></li>
+                <li><a href="#">Linkedin</a></li>
             </ul>
             <ul className='home-nav-session'>
                 <li>
@@ -19,6 +19,9 @@ const SlantHome = () => (
                 </li>
             </ul>
         </nav>
+        <section className='slant-intro'>
+
+        </section>
 
     </div>
 )

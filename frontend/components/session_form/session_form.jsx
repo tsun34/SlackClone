@@ -9,6 +9,7 @@ class SessionForm extends React.Component{
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     handleSubmit(e){
@@ -25,42 +26,50 @@ class SessionForm extends React.Component{
         }
     }
 
+    handleDemo(e){
+        e.preventDefault();
+        const demoUser = {email: 'goosek@gmail.com', password: 'honkhonk'};
+        this.props.processForm(demoUser);
+    }
+
     renderErrors(){
-        return(
-            <ul>
+        const errorList = (
+            <ul className='errorList'>
                 {this.props.errors.map((error, i) => (
                     <li key={`error-${i}`}>{error}</li>
                 ))}
             </ul>
         )
+        return errorList;
     }
 
     render(){
         const linkText = (this.props.formType == 'Sign Up') ? 'Already have an account?' : 'Looking to create an account instead?'; 
         return (
-            <div class="session-page">
-                <img src={window.slantWhiteURL} alt="slant-logo" class='session-page-logo'/>
-                <form class='session-form' onSubmit={this.handleSubmit}>
-                    {this.renderErrors()}
-
-                    <h1 class='session-form-title'>{this.props.formType} to your workspace</h1>
-                    <p class='session-form-subtitle'>Enter your email and password</p>
-                    <div class='session-input'>
+            <div className="session-page">
+                <img src={window.slantWhiteURL} alt="slant-logo" className='session-page-logo'/>
+                <form className='session-form' onSubmit={this.handleSubmit}>
+                    { (this.props.errors.length)>0? this.renderErrors() : ''}
+                    <h1 className='session-form-title'>{this.props.formType} to your workspace</h1>
+                    <p className='session-form-subtitle'>Enter your email and password</p>
+                    <div className='session-input'>
                         <label>Email</label>
                         <input type="text" value={this.state.email} onChange={this.handleUpdate('email')}/>
                     </div>
-                    <div class='session-input'>
+                    <div className='session-input'>
                         <label>Password</label>
                         <input type="password" value={this.state.password} onChange={this.handleUpdate('password')}/>
                     </div>
-                    <button class='session-submit' type="submit">Continue</button>
-                    <div class='session-links'>
-                        <p>{linkText}</p>
-                        <span>
-                            {this.props.navLink}
-                        </span>
-                    </div>
+                    <button className='session-submit' type="submit">Continue</button>
+                    
                 </form>
+                <button className='session-submit' onClick={this.handleDemo}> Continue as Goose</button>
+                <div className='session-links'>
+                    <p>{linkText}</p>
+                    <span>
+                        {this.props.navLink}
+                    </span>
+                </div>
 
             </div>
         )
