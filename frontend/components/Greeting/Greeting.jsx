@@ -15,6 +15,7 @@ class Greeting extends React.Component{
         const user = this.props.currentUser;
         const personalGreeting = () => (
             <nav class='home-nav'>
+                <h1>Slant - Searchable Logs of All Niche Topics</h1>
                 <h2>Hi, {user.full_name}</h2>
                 <button onClick={this.handleLogout}>Log Out</button>div
             </nav>
@@ -26,7 +27,7 @@ class Greeting extends React.Component{
             </nav>
         );
         
-        return user ? personalGreeting() : sessionLinks();
+        return user ? personalGreeting() : "";
     }
 }
 
