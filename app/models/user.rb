@@ -7,6 +7,14 @@ class User < ApplicationRecord
     validates :email, uniqueness: true, email: true
     validates :password, length: {minimum: 6}, allow_nil: true
 
+    has_many :messages,
+        foreign_key: :author_id,
+        class_name: :Message
+    
+    has_many :subscriptions,
+        foreign_key: :user_id,
+        class_name: :Subscription
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         if user && user.check_password?(password)
