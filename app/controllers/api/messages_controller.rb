@@ -1,34 +1,46 @@
 class Api::MessagesController < ApplicationController
 
     def index
-        @messages = Message.all
-        render json: messages
+        # @conversation = Conversation.find(params[:conversation_id])
+        if params[:conversation_id]
+            @messages = Message.where(conversation_id: params[:conversation_id]).inludes(:author)
+        end
+
+        if @messages
+            render :index     
+        else
+            render json: @messages.errors.full_messages, status: 420       
+        end
     end
 
     def create
         @message = Message.new(msg_params)
         @message.author_id = current_user.id;
-        conversation = Conversation.find(msg_params['conversation_id'])
+        @message.conversation_id = params[:conversation_id]
+        # conversation = Conversation.find(msg_params['conversation_id'])
         
         if @message.save
+            render :show
             # ConversationChannel.broadcast_to(conversation, {
             #     conversation: 
             # })
+        else
+            render json: @message.errors.full_messages, status: 422
         end
-        render json: MessageSerializer.new(@message)
+        # render json: MessageSerializer.new(@message)
     end
 
     def update 
-        @message = Message.find(params[:id])
+        @message = Message.find_by(id: params[:id])
         if @message.update(msg_params)
-            #do something
+            render :show
         else
-            #show error
+            render json: @message.errors.full_messages, status: 422
         end
     end
 
     private 
     def msg_params
-        params.require(:message).permit(:body, :conversation_id)
+        params.require(:message).permit(:body)
     end
 end

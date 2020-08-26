@@ -7182,3 +7182,83 @@ Processing by Api::SessionsController#create as JSON
 Completed 200 OK in 215ms (Views: 3.4ms | ActiveRecord: 13.5ms)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Destroy (11.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "goosek@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (52.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "full_name", "display_name", "title", "avatar", "description", "status", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["email", "goosek@gmail.com"], ["full_name", "King Goose"], ["display_name", "King Goose"], ["title", "Untitled"], ["avatar", ""], ["description", "I honk very loudly."], ["status", 1], ["password_digest", "$2a$12$2ibqgwASf6LKuJGLSXkLA.4IQpfkwVrsfhUNy0O9aiuy6C5AtFow2"], ["session_token", "Y7Y7P0pieBV_dV4q5T806g"], ["created_at", "2020-08-26 22:27:36.306204"], ["updated_at", "2020-08-26 22:27:36.306204"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (9.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mConversation Exists (8.5ms)[0m  [1m[34mSELECT  1 AS one FROM "conversations" WHERE "conversations"."name" = $1 LIMIT $2[0m  [["name", "general"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Destroy (8.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "goosek@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "full_name", "display_name", "title", "avatar", "description", "status", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["email", "goosek@gmail.com"], ["full_name", "King Goose"], ["display_name", "King Goose"], ["title", "Untitled"], ["avatar", ""], ["description", "I honk very loudly."], ["status", 1], ["password_digest", "$2a$12$VXY392e/d.amGzH7pDi8Q.GNAF/2PX5Lx77ntjLe4YcQgpj6NUdJi"], ["session_token", "rFJ3Qm-mW7xCM79LXVR0DQ"], ["created_at", "2020-08-26 22:29:42.892483"], ["updated_at", "2020-08-26 22:29:42.892483"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Destroy (7.2ms)[0m  [1m[31mDELETE FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "goosek@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "full_name", "display_name", "title", "avatar", "description", "status", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["email", "goosek@gmail.com"], ["full_name", "King Goose"], ["display_name", "King Goose"], ["title", "Untitled"], ["avatar", ""], ["description", "I honk very loudly."], ["status", 1], ["password_digest", "$2a$12$uQb2vO.4n9kZ1WeH/C2ObOIjbEFXdQiipizVKqOeJlu.W0wDGsJ7C"], ["session_token", "pguS-qtqY2iViSuzyP3VkA"], ["created_at", "2020-08-26 22:30:28.679732"], ["updated_at", "2020-08-26 22:30:28.679732"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Destroy (8.1ms)[0m  [1m[31mDELETE FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "goosek@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "full_name", "display_name", "title", "avatar", "description", "status", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["email", "goosek@gmail.com"], ["full_name", "King Goose"], ["display_name", "King Goose"], ["title", "Untitled"], ["avatar", ""], ["description", "I honk very loudly."], ["status", 1], ["password_digest", "$2a$12$2AW7caZnjhqPPvZ.J8rlKepOQyWK20s0LLBxipmdgGC/cObNtaLjm"], ["session_token", "zs0pMphebdgaKbggW5uGbg"], ["created_at", "2020-08-26 22:31:25.240501"], ["updated_at", "2020-08-26 22:31:25.240501"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mConversation Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "conversations" WHERE "conversations"."name" = $1 LIMIT $2[0m  [["name", "general"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Destroy (6.9ms)[0m  [1m[31mDELETE FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "goosek@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "full_name", "display_name", "title", "avatar", "description", "status", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["email", "goosek@gmail.com"], ["full_name", "King Goose"], ["display_name", "King Goose"], ["title", "Untitled"], ["avatar", ""], ["description", "I honk very loudly."], ["status", 1], ["password_digest", "$2a$12$nKIaXoJkWPDqeCSPlXGuGOwPbHA6CMUIUi9Tfovmc2gKYCInYF8zW"], ["session_token", "DE-4TaU4dPad66FwDXHxAw"], ["created_at", "2020-08-26 22:34:32.516627"], ["updated_at", "2020-08-26 22:34:32.516627"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mConversation Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "conversations" WHERE "conversations"."name" = $1 LIMIT $2[0m  [["name", "general"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:13

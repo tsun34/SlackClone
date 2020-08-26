@@ -8,4 +8,9 @@
 
 User.delete_all
 
-demo_user = User.create!(email: 'goosek@gmail.com', password: 'honkhonk', full_name:'King Goose', display_name: 'King Goose', title: 'Untitled', avatar: '', description: 'I honk very loudly.',status: 1, avatar: {window.kingGooseURL} )
+demo_user = User.create!(email: 'goosek@gmail.com', password: 'honkhonk', full_name:'King Goose', display_name: 'King Goose', title: 'Untitled', avatar: '', description: 'I honk very loudly.',status: 1 )
+
+general_channel = Conversation.create!(name: 'general', description: '', admin_id: demo_user.id, is_private: false, conversation_type: 'channel')
+
+sample_msg = Message.create!(body: 'Test message for ahahahhahaaaaaaaahhh')
+sample_sub = Subscription.create!(uer_id: demo_user.id, conversation_id: general_channel.id)
