@@ -5,17 +5,15 @@ import GreetingContainer from './Greeting/GreetingContainer';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import SlantHome from './SlantHome/slant_home';
-
+import SlantChat from './SlantChat/slant_chat';
 
 const App = () => (
-    <div>
-        <header>
-            {/* <h1>Slant - Searchable Logs of All Niche Topics</h1> */}
-            <GreetingContainer />
-        </header>
+    <div className='slant-display'>
+
         <Route exact path='/' component={SlantHome}/>
         <AuthRoute path='/login' component={LoginFormContainer} />
         <AuthRoute path='/signup' component={SignupFormContainer} />
+        <Route path='/client/general' component={SlantChat}/>
     </div>
 )
 

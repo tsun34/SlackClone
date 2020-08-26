@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import {login, logout, signup} from './actions/session_actions';
+import { allMessages } from './reducers/selector';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -27,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.signup = signup;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+    window.allMessages = allMessages;
+    
     // TESTING END
     
     const rootEl = document.getElementById('root');
