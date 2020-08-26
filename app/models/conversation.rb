@@ -9,4 +9,7 @@ class Conversation < ApplicationRecord
     has_many :subscriptions,
         foreign_key: :conversation_id,
         class_name: :Subscription
+
+    has_many :users, 
+        through: :subscriptions
 end
