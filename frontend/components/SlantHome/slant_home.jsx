@@ -20,8 +20,21 @@ const SlantHome = () => (
             </ul>
         </nav>
         <section className='slant-intro'>
-
-        </section>
+            <div>
+                <h1 className='slant-home-title'>Slant is where honk happens</h1>
+                <span className='slant-home-body'>With channels in Slant, you and your geese know where to go honk groundkeepers, share stolen items and stay in the crime loop.</span>
+                <ul className='slant-home-buttons'>
+                    <li>
+                        <Link to='/login'>TRY FOR FREE</Link>
+                    </li>
+                    <li>
+                        <a href="#">CONTACT US</a>
+                    </li>
+                </ul>
+                <p className='slant-home-note'>Need to create a workspace? <Link to="/login" className='slant-home-note-link'> Get started</Link></p>
+            </div>
+            <img className='slant-home-img' src={window.slantHome1URL} alt='slant homepage'/>
+        </section>  
 
     </div>
 )

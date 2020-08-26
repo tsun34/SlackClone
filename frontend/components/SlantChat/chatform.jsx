@@ -22,6 +22,7 @@ class Chatform extends React.Component{
             author_id: 1,
             conversation_id: 1
         })
+        
     }
 
     updateBody(e){
