@@ -1,3 +1,49 @@
 // Place all the styles related to the api/messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.chat-message{
+    padding: 0px 20px;
+    font-size: 15px;
+    font-family: 'Lato';
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.chat-message:hover{
+    // background: rgba(227, 223, 197, 0.5);
+    background-color: silver;
+}
+
+.chat-message-avatar{
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: skyblue;
+    margin: 8px;
+}
+
+.chat-message-content{
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+}
+
+.chat-message-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chat-message-header > strong{
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.chat-message-header > span{
+    font-size: 12px;
+    // font-weight: light;
+}

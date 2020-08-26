@@ -8,4 +8,4 @@
 
 User.delete_all
 
-demo_user = User.create!(email: 'goosek@gmail.com', password: 'honkhonk', full_name:'King Goose', display_name: 'King Goose', title: 'Untitled', avatar: '', description: 'I honk very loudly.',status: 1)
+demo_user = User.create!(email: 'goosek@gmail.com', password: 'honkhonk', full_name:'King Goose', display_name: 'King Goose', title: 'Untitled', avatar: '', description: 'I honk very loudly.',status: 1, avatar: {window.kingGooseURL} )
