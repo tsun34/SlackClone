@@ -6,6 +6,7 @@ import SignupFormContainer from './session_form/signup_form_container';
 import SlantHome from './SlantHome/slant_home';
 import SlantChat from './SlantChat/slant_chat';
 import { getConversation } from '../util/conversation_util';
+import SlantChatContainer from './SlantChat/slant_chat_container';
 
 class App extends React.Component{
     constructor(props){
@@ -55,8 +56,8 @@ class App extends React.Component{
                 <AuthRoute path='/login' component={LoginFormContainer} />
                 <AuthRoute path='/signup' component={SignupFormContainer} />
                 {/* <Route path='/client/general' component={SlantChat} /> */}
-                <ProtectedRoute exact path='/client/:id' component={(props) => 
-                    (<SlantChat
+                <ProtectedRoute path='/client' component={(props) => 
+                    (<SlantChatContainer
                         {...props}
                         cableApp = {this.props.cableApp}
                         updateApp = {this.updateApp}
