@@ -58,7 +58,73 @@
 }
 
 .slant-intro{
-    background-color: wheat;
+    background-color: #d6e27c;
     height: 500px;
-    width: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px;
+}
+
+.slant-intro > div{
+    // flex: 0.75;
+    width: 30%;
+}
+
+
+.slant-home-img{
+    width: 500px;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 100px;
+}
+
+.slant-home-title{
+    font-family: 'Pangolin';
+    font-size: 64px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.slant-home-body{
+    font-family: 'Pangolin';
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+}
+
+.slant-home-note{
+    font-family: 'Lato';
+    font-size: 14px;
+    margin-top: 16px;
+}
+
+.slant-home-note-link{
+    color: cornflowerblue;
+    text-decoration: underline;
+}
+
+.slant-home-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.slant-home-buttons > li{
+    box-sizing: border-box;
+    width: 200px;
+    height: 60px;
+    border-radius: 4px;
+    border: 1px solid black;
+    padding: 20px 40px;
+    margin: 20px 0px;
+    font-weight: bold;
+    font-family: 'Lato';
+    font-size: 14px;
+    text-align: center;
 }

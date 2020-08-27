@@ -1,12 +1,21 @@
 import React, { Fragment } from 'react';
+import {Route} from 'react-router-dom';
+
 import GreetingContainer from '../Greeting/GreetingContainer';
-import ChatlistContainer from './chatlist_container';
+// import ChatlistContainer from './chatlist_container';
+import ChatlistItem from './chatlist_item';
 import ChatfeedContainer from './chatfeed_container';
-import ChatformContainer from './chatform_container';
+import ChatWebSocket from './chat_websocket';
+
 
 class SlantChat extends React.Component{
 
+    componentDidMount(){
+        this.props.getConversations();
+    }
+
     render(){
+        const conversations = this.props.conversations; 
         return (        
         <div className='main-slant'>
             <nav className='slant-nav'>
@@ -15,12 +24,21 @@ class SlantChat extends React.Component{
             <div className="slant-chat">
                 <div className='channel-side'>
                     <p>channel list</p>
-                    {/* <ChatlistContainer /> */}
+                    <ul>
+                        {conversations.map(convo => <ChatlistItem key={convo.id} conversation={convo} />)}
+                    </ul>
                 </div>
                 <div className='chat-side'>
-                    <ChatfeedContainer />
+                    <Route path="/client/conversations/:conversationId" component={ChatfeedContainer} />
                 </div>
             </div>
+
+            {/* <ChatWebSocket 
+                cableApp = {this.props.cableApp}
+                updateApp = {this.props.updateApp}
+                getConversationData = {this.props.getConversationData}
+                conversationData = {this.props.conversationData}
+            /> */}
         </div>)
     }
 }

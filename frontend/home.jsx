@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import {login, logout, signup} from './actions/session_actions';
-import { allMessages } from './reducers/selector';
+import { allMessages, selectConvoMessages } from './reducers/selector';
+import { getConversation, getConversations, createConversation, deleteConversation } from './actions/conversation_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -29,7 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.getState = store.getState;
     window.dispatch = store.dispatch;
     window.allMessages = allMessages;
-    
+    window.getConversations = getConversations;  
+    window.getConversation = getConversation;  
+    window.selectConvoMessages = selectConvoMessages;
     // TESTING END
     
     const rootEl = document.getElementById('root');

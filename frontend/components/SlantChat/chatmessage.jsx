@@ -9,7 +9,7 @@ class ChatMessage extends React.Component{
                 <div className='chat-message-content'>
                     <div className='chat-message-header'>
                         <strong>{msg.author_id}</strong>
-                        <span>msg sent time</span>
+                        <span>{msg.created_at}</span>
                     </div>
                     <span>{msg.body}</span>
                 </div>
