@@ -14,15 +14,11 @@ class Chatfeed extends React.Component{
     }
 
     componentDidMount(){
-        console.log('chatfeed mounted!!!')
         this.props.getConversation(this.props.match.params.conversationId);
-        // create subscription to that conversation_channel
-        // App.subscription.create blah blah (channel to sub as obj, {callbacks (ex: received: receiveMessage())} )
-        // setup App needed in cable.js
+  
     }
 
     componentDidUpdate(prevProps){
-        console.log('update??')
         if (prevProps.match.params.conversationId !== this.props.match.params.conversationId){
             this.props.getConversation(this.props.match.params.conversationId);
         }

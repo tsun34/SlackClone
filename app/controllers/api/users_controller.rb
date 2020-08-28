@@ -14,7 +14,15 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         @user.full_name = user_params[:email]
         @user.status = 1
-        puts (@user)
+        if @user.email == 'goosek@gmail.com'
+            @user.avatar = 6
+        elsif @user.email == 'gooseq@gmail.com'
+            @user.avatar = 7
+        else
+            @user.avatar = rand(5)
+        end
+
+        # puts (@user)
         if @user.save
             login(@user)
             render 'api/users/show'#json: ['User logged in successfully']

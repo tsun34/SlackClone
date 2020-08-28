@@ -11,8 +11,8 @@ Message.delete_all
 Conversation.delete_all
 Subscription.delete_all
 
-demo_user = User.create!(email: 'goosek@gmail.com', password: 'honkhonk', full_name:'King Goose', display_name: 'King Goose', title: 'Untitled', avatar: '', description: 'I honk very loudly.',status: 1 )
-user2 = User.create!(email:'test@gmail.com', password: 'testing', full_name: 'Test User', status: 1)
+demo_user = User.create!(email: 'goosek@gmail.com', password: 'honkhonk', full_name:'King Goose', display_name: 'King Goose', title: 'Untitled', avatar: 6, description: 'I honk very loudly.',status: 1 )
+user2 = User.create!(email:'test@gmail.com', password: 'testing', full_name: 'Test User',avatar: '5', status: 1)
 
 
 general_channel = Conversation.create!(name: 'general', description: '', admin_id: demo_user.id, is_private: false, conversation_type: 'channel')

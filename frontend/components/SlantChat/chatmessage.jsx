@@ -5,7 +5,7 @@ class ChatMessage extends React.Component{
         const msg = this.props.message
         return(
             <li className='chat-message' key={msg.id}>
-                <img className='chat-message-avatar' src="" alt=""/> 
+                <img className='chat-message-avatar' src={window.defaultGoose6URL} alt=""/> 
                 <div className='chat-message-content'>
                     <div className='chat-message-header'>
                         <strong>{msg.author_id}</strong>
