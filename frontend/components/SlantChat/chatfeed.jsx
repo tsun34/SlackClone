@@ -9,7 +9,10 @@ class Chatfeed extends React.Component{
         super(props)
         App.cable.subscriptions.create(
             {channel: 'ConversationChannel'},
-            {received: (msg) => this.props.receiveMessage(msg)}
+            {received: (msg) => {
+                this.props.receiveMessage(msg);
+                this.props.getAllUsers();
+            }}
         )
     }
 

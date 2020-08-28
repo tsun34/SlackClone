@@ -3,6 +3,8 @@ import Chatfeed from './chatfeed';
 import { allMessages, selectConvoMessages } from "../../reducers/selector";
 import { getConversation } from "../../actions/conversation_actions";
 import {createMessage, receiveMessage} from '../../actions/message_actions';
+import {getAllUsers} from '../../actions/session_actions';
+
 
 const mapStateToProps = (state, ownProps) => {
     const conversation = state.entities.conversations[ownProps.match.params.conversationId];
@@ -18,7 +20,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getConversation: id => dispatch(getConversation(id)),
         createMessage: (message) => dispatch(createMessage(message)),
-        receiveMessage: (message) => dispatch(receiveMessage(message))
+        receiveMessage: (message) => dispatch(receiveMessage(message)),
+        getAllUsers: () => dispatch(getAllUsers())
     }
 };
 const ChatfeedContainer = connect(mapStateToProps, mapDispatchToProps)(Chatfeed);
