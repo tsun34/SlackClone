@@ -2,22 +2,19 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {HashRouter} from 'react-router-dom';
 import App from './App';
-// import actionCable from 'actioncable';
-import ActionCableProvider from 'react-actioncable-provider';
+// import ActionCableProvider from 'react-actioncable-provider';
 
-// const CableApp = {};
-// CableApp.cable = actionCable.createConsumer('ws://localhost:3000/cable');
-const API_WS_ROOT = 'ws://localhost:3000/cable';
+// const API_WS_ROOT = 'ws://localhost:3000/cable';
 
 
 const Root = ({store}) => (
-    <ActionCableProvider url={API_WS_ROOT}>
+    // <ActionCableProvider url={API_WS_ROOT}>
         <Provider store={store}>
             <HashRouter>
                 <App />
             </HashRouter>
         </Provider>
-    </ActionCableProvider>
+    // </ActionCableProvider>
 );
 
 export default Root;
