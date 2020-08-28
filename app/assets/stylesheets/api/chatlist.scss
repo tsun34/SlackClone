@@ -12,11 +12,22 @@
 }
 
 .workspace-header{
-    box-sizing: border-box;
+    // box-sizing: border-box;
     height: 60px;
     padding: 5px 30px;
     border-bottom: 1px solid silver;
     margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.workspace-header > img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
+    margin-left: 20px;
 }
 
 .workspace-name{

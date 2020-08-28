@@ -51,3 +51,16 @@ export const receiveErrors = (errors) => {
         errors
     }
 };
+
+export const getAllUsers = () => (dispatch) => {
+    return APIUtil.getAllUser().then((users) => (
+        dispatch(receiveAllUsers(users))
+    ))
+}
+export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
+export const receiveAllUsers = (users) => {
+    return {
+        type: RECEIVE_ALL_USERS,
+        users
+    }
+}

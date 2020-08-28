@@ -10,8 +10,8 @@ const mapStateToProps = (state, ownProps) => {
         // messages: allMessages(state)
         conversation,
         convoMessages: Object.keys(state.entities.messages).map(id => state.entities.messages[id]), //selectConvoMessages(state, conversation),
-        currentUser: state.entities.users[state.session.id]
-        
+        currentUser: state.entities.users[state.session.id],
+        users: state.entities.users
     }
 };
 const mapDispatchToProps = (dispatch) => {

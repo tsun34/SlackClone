@@ -7,9 +7,8 @@ class Chatlist extends React.Component{
     render(){
         const conversations = this.props.conversations;
         const currentUser = this.props.currentUser;
-        const gooseAvatars = [window.kingGooseURL, window.queenGooseURL, window.default_goose1, window.default_goose2, window.default_goose3, window.default_goose4, window.default_goose5, window.default_goose6];
 
-        const currentUserAvatar = gooseAvatars[currentUser.avatar];
+        const currentUserAvatar = window.gooseAvatar[currentUser.avatar];
         return (
             <>
                 <div className="workspace-header">
@@ -18,7 +17,6 @@ class Chatlist extends React.Component{
                         <span className='workspace-user'><span className='dot online'></span>{currentUser.full_name}</span>
                     </div>
                     <img src={currentUserAvatar} alt=""/>
-                    {/* <div>{currentUser.avatar}</div> */}
                 </div>
 
                 <div className="chatlist">

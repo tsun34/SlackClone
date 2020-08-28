@@ -1,5 +1,10 @@
 class Api::UsersController < ApplicationController
     
+    def index
+        @users = User.all
+        render :index
+    end
+
     def show 
         @user = User.find_by(id: params[:id])
         if @user 
@@ -10,7 +15,6 @@ class Api::UsersController < ApplicationController
     end
 
     def create
-        #user signup
         @user = User.new(user_params)
         @user.full_name = user_params[:email]
         @user.status = 1
@@ -22,7 +26,6 @@ class Api::UsersController < ApplicationController
             @user.avatar = rand(5)
         end
 
-        # puts (@user)
         if @user.save
             login(@user)
             render 'api/users/show'#json: ['User logged in successfully']

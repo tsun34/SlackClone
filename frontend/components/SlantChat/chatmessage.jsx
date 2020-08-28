@@ -2,13 +2,14 @@ import React from 'react';
 
 class ChatMessage extends React.Component{
     render(){
-        const msg = this.props.message
+        const msg = this.props.message;
+        const author = this.props.author;
         return(
             <li className='chat-message' key={msg.id}>
-                <img className='chat-message-avatar' src={window.defaultGoose6URL} alt=""/> 
+                <img className='chat-message-avatar' src={window.gooseAvatar[author.avatar]} alt=""/> 
                 <div className='chat-message-content'>
                     <div className='chat-message-header'>
-                        <strong>{msg.author_id}</strong>
+                        <strong>{author.full_name}</strong>
                         <span>{msg.created_at}</span>
                     </div>
                     <span>{msg.body}</span>

@@ -31,11 +31,11 @@ class Chatfeed extends React.Component{
         const oldMessages = this.props.convoMessages;
         const createMessage = this.props.createMessage;
         const currentUser = this.props.currentUser;
-        
+        const allUsers = this.props.users;
         if (!oldMessages){
             return null;
         }
-        
+        // console.log(this.props)
         return (
             <>  
                 <div className='channel-log'>
@@ -53,7 +53,7 @@ class Chatfeed extends React.Component{
                         </ul>
                     </div>  
                     <ul className='channel-content'>
-                        {oldMessages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+                        {oldMessages.map(msg => <ChatMessage key={msg.id} message={msg} author={allUsers[msg.author_id]}/>)}
                     </ul>
                 </div>
                 <Chatform createMessage={createMessage} convoId={conversation.id} authorId={currentUser.id} />

@@ -21,7 +21,7 @@ class Greeting extends React.Component{
                 </div>
                 <div className='login-nav-links'>
                     <span>Hi, {user.full_name}</span>
-                    <img src={user.avatar} alt=""/>
+                    <img src={window.gooseAvatar[user.avatar]} alt=""/>
                     <button onClick={this.handleLogout}><i className='fal fa-sign-out' aria-hidden="true"></i></button>
                 </div>
             </nav>

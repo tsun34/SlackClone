@@ -12,6 +12,7 @@ class SlantChat extends React.Component{
 
     componentDidMount(){
         this.props.getConversations();
+        this.props.getAllUsers();
     }
     
     render(){
@@ -24,10 +25,7 @@ class SlantChat extends React.Component{
             </nav>
             <div className="slant-chat">
                 <div className='channel-side'>
-                    {/* <p>channel list</p>
-                    <ul>
-                        {conversations.map(convo => <ChatlistItem key={convo.id} conversation={convo} />)}
-                    </ul> */}
+
                     <ChatlistContainer conversations={conversations}/>
                 </div>
                 <div className='chat-side'>
@@ -35,12 +33,6 @@ class SlantChat extends React.Component{
                 </div>
             </div>
 
-            {/* <ChatWebSocket 
-                cableApp = {this.props.cableApp}
-                updateApp = {this.props.updateApp}
-                getConversationData = {this.props.getConversationData}
-                conversationData = {this.props.conversationData}
-            /> */}
         </div>)
     }
 }

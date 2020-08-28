@@ -30,3 +30,10 @@ export const getCurrentUser = (userId) => (
         url: `/api/users/${userId}`
     })
 )
+
+export const getAllUser = () => (
+    $.ajax({
+        method: 'GET',
+        url: '/api/users'
+    })
+)

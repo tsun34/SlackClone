@@ -1,14 +1,14 @@
 import { RECEIVE_MESSAGE, RECEIVE_MESSAGES } from "../actions/message_actions";
 import { RECEIVE_CONVERSATION } from "../actions/conversation_actions";
 
-const initialState = {
-    1:{
-        id: 1,
-        body: '',
-        author_id: 1,
-        conversation_id: 1
-    }
-}
+const initialState = {}
+//     1:{
+//         id: 1,
+//         body: '',
+//         author_id: 1,
+//         conversation_id: 1
+//     }
+// }
 
 const messageReducer = (state = initialState, action) => {
     Object.freeze(state);

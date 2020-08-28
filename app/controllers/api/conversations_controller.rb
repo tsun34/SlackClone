@@ -18,7 +18,6 @@ class Api::ConversationsController < ApplicationController
         @conversation = Conversation.new(convo_params)
         
         @conversation.admin_id = current_user.id 
-        # @conversation.conversation_type = ''
         @subscription = Subscription.new(user_id: current_user.id , conversation_id: @conversation.id)
         if @conversation.save && @subscription.save
             render :show
@@ -30,7 +29,6 @@ class Api::ConversationsController < ApplicationController
     def destroy
         @conversation = Conversation.find(params[:id])
         if @conversation
-            # remove all subscription?
             @conversation.destroy 
             @conversation = Conversation.all.first
             render :show
