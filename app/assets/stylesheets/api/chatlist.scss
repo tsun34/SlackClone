@@ -1,0 +1,67 @@
+.dot{
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.online{
+    background-color: greenyellow;
+
+}
+
+.workspace-header{
+    box-sizing: border-box;
+    height: 60px;
+    padding: 5px 30px;
+    border-bottom: 1px solid silver;
+    margin: 10px 0;
+}
+
+.workspace-name{
+    font-family: 'Lato';
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.workspace-user{
+    font-family: 'Lato';
+    font-size: 13px;
+}
+
+.chatlist{
+    // height:calc(100vh-60px);
+    // height: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.chatlist-sub{
+    display: flex;
+    flex-direction: column;
+}
+
+.chatlist-subtitle{
+    font-size: 14px;
+    font-family: 'Lato';
+    padding: 10px 0;
+    color: #4d3722;
+}
+
+.chatlist-item{
+    font-size: 14px;
+    font-family: 'Lato';
+    padding: 5px 10px;
+    color:#4d3722;
+}
+
+.chatlist-item:hover{
+    background-color: #d6e27c;
+}
+// .chatlist-item.current, {
+//     font-weight: bold;
+// } 

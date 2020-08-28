@@ -15,21 +15,21 @@ class Chatlist extends React.Component{
                 <div className="workspace-header">
                     <div>
                         <h1 className='workspace-name'>Untitled Garden</h1>
-                        <span className='workspace-user'>{currentUser.full_name}</span>
+                        <span className='workspace-user'><span className='dot online'></span>{currentUser.full_name}</span>
                     </div>
                     <img src={currentUserAvatar} alt=""/>
                     {/* <div>{currentUser.avatar}</div> */}
                 </div>
 
-                <div>
-                    <div>
-                        <span>Channels</span>
+                <div className="chatlist">
+                    <div className="chatlist-sub">
+                        <span className="chatlist-subtitle">Channels</span>
                         <ul>
                             {conversations.map(convo => <ChatlistItem key={uniqueId+Math.random()} conversation={convo} />)}
                         </ul>
                     </div>
-                    <div>
-                        <span>Direct Messages</span>
+                    <div className='chatlist-sub'>
+                        <span className="chatlist-subtitle">Direct Messages</span>
                         <ul>
                             {conversations.map(convo => <ChatlistItem key={uniqueId + Math.random()} conversation={convo} />)}
                         </ul>
