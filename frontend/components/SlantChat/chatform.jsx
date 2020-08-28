@@ -1,5 +1,6 @@
 import React from 'react';
 import {uniqueId} from '../../util/chat_util';
+import ChatToolbar from './chatform_toolbar';
 
 class Chatform extends React.Component{
     constructor(props){
@@ -11,7 +12,22 @@ class Chatform extends React.Component{
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateBody = this.updateBody.bind(this);
+        // this.modules = {
+        //     toolbar: [
+        //         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+        //         [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+        //         ['link', 'image'],
+        //         ['clean']
+        //     ]
+        // };
+
+        // this.formats = [
+        //     'bold', 'italic', 'underline', 'strike', 'blockquote',
+        //     'list', 'bullet',
+        //     'link', 'image'
+        // ];
     }
+
 
     handleSubmit(e){
         e.preventDefault();
@@ -38,7 +54,7 @@ class Chatform extends React.Component{
                 <ul className='channel-form-links'>
                     <button><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
                 </ul>
-
+                {/* <ChatToolbar/> */}
             </form>
         )
 
