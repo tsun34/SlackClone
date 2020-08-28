@@ -1,1 +1,7 @@
-json.partial! 'api/conversations/conversation', conversation: @conversation
+json.conversation do 
+    json.extract! @conversation, :id, :name, :description, :admin_id, :is_private, :conversation_type
+end 
+
+json.messages do 
+    json.array! @conversation.messages
+end

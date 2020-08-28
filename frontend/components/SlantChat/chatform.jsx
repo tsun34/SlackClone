@@ -6,8 +6,8 @@ class Chatform extends React.Component{
         super(props)
         this.state = {
             body: '',
-            author_id: 1,
-            conversation_id: 1
+            author_id: this.props.authorId,
+            conversation_id: this.props.convoId
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateBody = this.updateBody.bind(this);
@@ -15,12 +15,13 @@ class Chatform extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        const message = Object.assign({}, this.state, {id: uniqueId()});
-        this.props.receiveMessage(message);
+        // const message = Object.assign({}, this.state, {id: uniqueId()});
+        // this.props.createMessage(message);
+        this.props.createMessage(this.state);
         this.setState({
             body: "",
-            author_id: 1,
-            conversation_id: 1
+            author_id: this.props.authorId,
+            conversation_id: this.props.convoId
         })
         
     }
@@ -30,8 +31,9 @@ class Chatform extends React.Component{
     }
 
     render(){
+        // console.log(this.props)
         return(
-            <form className='channel-form' onSubmit={this.handleSubmit}>
+            <form className='channel-form' id='channel-form' onSubmit={this.handleSubmit}>
                 <textarea id="" row='3' value={this.state.body} onChange={this.updateBody} placeholder='Send a message' required></textarea>
                 <ul className='channel-form-links'>
                     <button><i className="fa fa-paper-plane" aria-hidden="true"></i></button>

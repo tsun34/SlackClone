@@ -1,5 +1,14 @@
 class Api::UsersController < ApplicationController
     
+    def show 
+        @user = User.find_by(id: params[:id])
+        if @user 
+            render :show 
+        else
+            render json: @user.errors.full_messages, stauts: 404
+        end
+    end
+
     def create
         #user signup
         @user = User.new(user_params)

@@ -1,4 +1,5 @@
 import { RECEIVE_MESSAGE, RECEIVE_MESSAGES } from "../actions/message_actions";
+import { RECEIVE_CONVERSATION } from "../actions/conversation_actions";
 
 const initialState = {
     1:{
@@ -22,6 +23,10 @@ const messageReducer = (state = initialState, action) => {
                 let message = action.messages[i];
                 nextState[message.id] = message;
             }
+            return nextState;
+        case RECEIVE_CONVERSATION:
+            // nextState = Object.assign({},state);
+            nextState = action.data.messages;
             return nextState;
         default:
             return state;

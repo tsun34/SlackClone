@@ -2,9 +2,9 @@ import * as ConversationUtil from '../util/conversation_util';
 
 // regular actions
 export const RECEIVE_CONVERSATION = 'RECEIVE_CONVERSATION';
-export const receiveConversation = (conversation) => ({
+export const receiveConversation = (data) => ({
     type: RECEIVE_CONVERSATION,
-    conversation
+    data
 })
 
 export const RECEIVE_CONVERSATIONS = 'RECEIVE_CONVERSATIONS';

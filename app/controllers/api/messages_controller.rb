@@ -15,15 +15,24 @@ class Api::MessagesController < ApplicationController
 
     def create
         @message = Message.new(msg_params)
-        @message.author_id = current_user.id;
-        @message.conversation_id = params[:conversation_id]
-        # conversation = Conversation.find(msg_params['conversation_id'])
+        # debugger
+        # @message.author_id = current_user.id;
+        # @message.conversation_id = params[:conversation_id]
         
         if @message.save
             render :show
-            # ConversationChannel.broadcast_to(conversation, {
-            #     conversation: 
-            # })
+            #create msg data hash , send to conversation 
+            msg_data = {
+                id: @message.id,
+                body: @message.body,
+                author_id: @message.author_id,
+                conversation_id: @message.conversation_id,
+                created_at: @message.created_at,
+                updated_at: @message.updated_at
+            } 
+            ConversationChannel.broadcast_to('conversation_channel', msg_data)
+            #     conversation: msg_data
+            # }) #msg_data)
         else
             render json: @message.errors.full_messages, status: 422
         end
@@ -41,6 +50,6 @@ class Api::MessagesController < ApplicationController
 
     private 
     def msg_params
-        params.require(:message).permit(:body)
+        params.require(:message).permit(:body, :author_id, :conversation_id)
     end
 end

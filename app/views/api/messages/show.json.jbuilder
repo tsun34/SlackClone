@@ -1,1 +1,1 @@
-json.partial! 'api/messages/message', msg: @message
+json.extract! @message, :id, :body, :author_id, :conversation_id, :created_at, :updated_at

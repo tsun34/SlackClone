@@ -5,6 +5,7 @@ import Root from './components/root';
 import {login, logout, signup} from './actions/session_actions';
 import { allMessages, selectConvoMessages } from './reducers/selector';
 import { getConversation, getConversations, createConversation, deleteConversation } from './actions/conversation_actions';
+import { createMessage } from './actions/message_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.getConversations = getConversations;  
     window.getConversation = getConversation;  
     window.selectConvoMessages = selectConvoMessages;
+    window.createMessage = createMessage;
     // TESTING END
     
     const rootEl = document.getElementById('root');

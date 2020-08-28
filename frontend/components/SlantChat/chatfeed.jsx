@@ -7,14 +7,22 @@ import Chatform from './chatform';
 class Chatfeed extends React.Component{
     constructor(props){
         super(props)
+        App.cable.subscriptions.create(
+            {channel: 'ConversationChannel'},
+            {received: (msg) => this.props.receiveMessage(msg)}
+        )
     }
 
     componentDidMount(){
-        // console.log(this.props)
+        console.log('chatfeed mounted!!!')
         this.props.getConversation(this.props.match.params.conversationId);
+        // create subscription to that conversation_channel
+        // App.subscription.create blah blah (channel to sub as obj, {callbacks (ex: received: receiveMessage())} )
+        // setup App needed in cable.js
     }
 
     componentDidUpdate(prevProps){
+        console.log('update??')
         if (prevProps.match.params.conversationId !== this.props.match.params.conversationId){
             this.props.getConversation(this.props.match.params.conversationId);
         }
@@ -22,10 +30,16 @@ class Chatfeed extends React.Component{
 
 
     render(){
+        
         const conversation = this.props.conversation;
         const oldMessages = this.props.convoMessages;
-        const receiveMessage = this.props.receiveMessage;
-        console.log(this.props)
+        const createMessage = this.props.createMessage;
+        const currentUser = this.props.currentUser;
+        
+        if (!oldMessages){
+            return null;
+        }
+        
         return (
             <>  
                 <div className='channel-log'>
@@ -46,7 +60,7 @@ class Chatfeed extends React.Component{
                         {oldMessages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
                     </ul>
                 </div>
-                <Chatform receiveMessage = {receiveMessage}/>
+                <Chatform createMessage={createMessage} convoId={conversation.id} authorId={currentUser.id} />
             </>
         ) 
     }

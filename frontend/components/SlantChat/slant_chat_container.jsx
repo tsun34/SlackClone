@@ -5,7 +5,7 @@ import {getConversations} from '../../actions/conversation_actions';
 
 const mapStateToProps = (state) => ({
     conversations: selectAllConversations(state),
-
+    // currentUser: users[state.session.id]
 });
 
 const mapDispatchToProps = (dispatch) => ({

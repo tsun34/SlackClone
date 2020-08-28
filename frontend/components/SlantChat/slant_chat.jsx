@@ -13,11 +13,12 @@ class SlantChat extends React.Component{
     componentDidMount(){
         this.props.getConversations();
     }
-
+    
     render(){
+        console.log(this.props)
         const conversations = this.props.conversations; 
         return (        
-        <div className='main-slant'>
+            <div className='main-slant'>
             <nav className='slant-nav'>
                 <GreetingContainer />
             </nav>
@@ -29,7 +30,7 @@ class SlantChat extends React.Component{
                     </ul>
                 </div>
                 <div className='chat-side'>
-                    <Route path="/client/conversations/:conversationId" component={ChatfeedContainer} />
+                    <Route path="/client/conversations/:conversationId" component={ChatfeedContainer}/>
                 </div>
             </div>
 
