@@ -8,17 +8,23 @@ class Chatform extends React.Component{
         this.state = {
             body: '',
             author_id: this.props.authorId,
-            conversation_id: this.props.convoId
+            conversation_id: this.props.convoId,
+            conversation_name: this.props.convoName
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.updateBody = this.updateBody.bind(this);
     }
 
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            conversation_id: nextProps.convoId,
+            conversation_name: nextProps.convoName
+        })
+    }
 
     handleSubmit(e){
         e.preventDefault();
-        // const message = Object.assign({}, this.state, {id: uniqueId()});
-        // this.props.createMessage(message);
+        console.log("form: ", this.state.conversation_id)
         this.props.createMessage(this.state);
         this.setState({
             body: "",
@@ -33,10 +39,9 @@ class Chatform extends React.Component{
     }
 
     render(){
-        // console.log(this.props)
         return(
             <form className='channel-form' id='channel-form' onSubmit={this.handleSubmit}>
-                <textarea id="" row='3' value={this.state.body} onChange={this.updateBody} placeholder='Send a message' required></textarea>
+                <textarea id="" row='3' value={this.state.body} onChange={this.updateBody} placeholder={`Send a message to ${this.state.conversation_name}`} required></textarea>
                 <ul className='channel-form-links'>
                     <button><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
                 </ul>
