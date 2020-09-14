@@ -4,6 +4,22 @@ import { uniqueId } from '../../util/chat_util';
 
 class Chatlist extends React.Component{
 
+    constructor(props){
+        super(props)
+        this.onCreateChannel = this.onCreateChannel.bind(this);
+        this.onCreateDM = this.onCreateDM.bind(this);
+    }
+
+    onCreateChannel(e){
+        e.preventDefault();
+        this.props.openModal('new_channel');
+    }
+
+    onCreateDM(e){
+        e.preventDefault();
+        this.props.openModal('new_dm');
+    }
+
     render(){
         const conversations = this.props.conversations;
         const currentUser = this.props.currentUser;
@@ -25,12 +41,14 @@ class Chatlist extends React.Component{
                         <ul>
                             {conversations.map(convo => <ChatlistItem key={uniqueId+Math.random()} conversation={convo} />)}
                         </ul>
+                        <button onClick={this.onCreateChannel}>Create New Channel</button>
                     </div>
                     <div className='chatlist-sub'>
                         <span className="chatlist-subtitle">Direct Messages</span>
                         <ul>
                             {conversations.map(convo => <ChatlistItem key={uniqueId + Math.random()} conversation={convo} />)}
                         </ul>
+                        <button onClick={this.onCreateDM}>Create New DM</button>
                     </div>
                 </div>
 

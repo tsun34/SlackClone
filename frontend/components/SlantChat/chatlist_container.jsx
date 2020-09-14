@@ -1,5 +1,6 @@
 import Chatlist from "./chatlist";
 import { connect } from "react-redux";
+import {openModal} from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => ({
     currentUser: state.entities.users[state.session.id]
@@ -7,6 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+    openModal: (modal) => dispatch(openModal(modal))
 
 });
 

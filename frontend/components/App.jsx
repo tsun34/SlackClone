@@ -8,6 +8,8 @@ import SlantChat from './SlantChat/slant_chat';
 import { getConversation } from '../util/conversation_util';
 import SlantChatContainer from './SlantChat/slant_chat_container';
 import { getCurrentUser } from '../util/session_api_util';
+import ModalContainer from './modal/modal_container';
+
 
 class App extends React.Component{
     constructor(props){
@@ -61,6 +63,7 @@ class App extends React.Component{
                 <AuthRoute path='/login' component={LoginFormContainer} />
                 <AuthRoute path='/signup' component={SignupFormContainer} />
                 <ProtectedRoute path='/client' component={SlantChatContainer}/>
+                <ModalContainer />
             </div>
         )
     }
