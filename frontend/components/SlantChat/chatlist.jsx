@@ -10,6 +10,7 @@ class Chatlist extends React.Component{
         this.onCreateDM = this.onCreateDM.bind(this);
     }
 
+
     onCreateChannel(e){
         e.preventDefault();
         this.props.openModal('new_channel');

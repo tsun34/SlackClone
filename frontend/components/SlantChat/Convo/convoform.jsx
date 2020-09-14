@@ -6,7 +6,7 @@ class NewConvoForm extends React.Component{
         this.state ={
             name: '',
             description: '',
-            isPrivate: false
+            isPrivate: false,
         }
         this.handleClick = this.handleClick.bind(this);
         this.onChangeUpdate = this.onChangeUpdate.bind(this);
@@ -15,10 +15,22 @@ class NewConvoForm extends React.Component{
 
     handleClick(e){
         e.preventDefault();
-        this.props.action(this.state).then(
-            () => this.props.history.push(`client/conversations`)
-        );
-        this.props.closeModal();
+
+        this.props.createConversation({
+            name: this.state.name,
+            description: this.state.description,
+            is_private: this.state.isPrivate,
+            admin_id: this.props.currentUser.id,
+            conversation_type: 'channel'
+        }).then(()=>{
+            this.props.getConversations();
+            this.props.closeModal();
+        })
+        this.setState({
+            name: '',
+            description: '',
+            isPrivate: false,
+        });
 
     }
 

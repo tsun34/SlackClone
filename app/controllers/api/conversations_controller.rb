@@ -15,9 +15,9 @@ class Api::ConversationsController < ApplicationController
     end
 
     def create 
-        @conversation = Conversation.new(convo_params)
+        @conversation = Conversation.create!(convo_params)
         
-        @conversation.admin_id = current_user.id 
+        # @conversation.admin_id = current_user.id 
         @subscription = Subscription.new(user_id: current_user.id , conversation_id: @conversation.id)
         if @conversation.save && @subscription.save
             render :show
@@ -39,6 +39,6 @@ class Api::ConversationsController < ApplicationController
 
     private
     def convo_params
-        params.require(:conversation).permit(:name, :description, :is_private, :conversation_type)
+        params.require(:conversation).permit(:name, :description, :is_private, :admin_id, :conversation_type)
     end
 end

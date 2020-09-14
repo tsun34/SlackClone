@@ -24,7 +24,6 @@ class Chatform extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        console.log("form: ", this.state.conversation_id)
         this.props.createMessage(this.state);
         this.setState({
             body: "",
