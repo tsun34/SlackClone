@@ -5,3 +5,7 @@ end
 json.messages do 
     json.array! @conversation.messages
 end
+
+json.subscriptions do 
+    json.array! @conversation.subscriptions
+end
