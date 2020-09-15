@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     resources :conversations, only: [:index, :show, :create, :destroy]
     resources :conversations do 
       resources :messages, only: [:index]
+      resources :subscriptions, only: [:index]
     end
     resources :messages, only: [:create, :update]
+    resources :subscriptions, only: [:create]
   end
   mount ActionCable.server => '/cable'
 end
