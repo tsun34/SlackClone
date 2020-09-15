@@ -1,4 +1,10 @@
-//
+// get all subscriptions in a conversation
+export const getSubscriptions = (conversation_id) => (
+    $.ajax({
+        method: 'GET',
+        url: `/api/conversations/${conversation_id}/subscriptions`
+    })
+)
 
 // create a new subscription
 export const createSubscription = (sub) => (
@@ -9,10 +15,3 @@ export const createSubscription = (sub) => (
     })
 )
 
-// delete subscription
-export const deleteSubscription = (subId) => (
-    $.ajax({
-        method: 'DELETE',
-        url: `/api/subscriptions/${subId}`
-    })
-)
