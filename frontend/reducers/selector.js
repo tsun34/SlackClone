@@ -9,3 +9,4 @@ export const selectAllConversations = (state) => {
 export const selectConvoMessages = (state, convo) => {
     return convo? convo.messages : [];
 }
+

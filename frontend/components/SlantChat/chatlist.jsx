@@ -24,8 +24,11 @@ class Chatlist extends React.Component{
     render(){
         const conversations = this.props.conversations;
         const currentUser = this.props.currentUser;
-
         const currentUserAvatar = window.gooseAvatar[currentUser.avatar];
+
+        const allChannels = conversations.filter(convo => convo.conversation_type === 'channel') ;
+        const allDms = conversations.filter(convo => convo.conversation_type === 'direct');
+
         return (
             <>
                 <div className="workspace-header">
@@ -40,14 +43,14 @@ class Chatlist extends React.Component{
                     <div className="chatlist-sub">
                         <span className="chatlist-subtitle">Channels</span>
                         <ul>
-                            {conversations.map(convo => <ChatlistItem key={uniqueId+Math.random()} conversation={convo} />)}
+                            {allChannels.map(convo => <ChatlistItem key={uniqueId+Math.random()} conversation={convo} />)}
                         </ul>
                         <button onClick={this.onCreateChannel}>Create New Channel</button>
                     </div>
                     <div className='chatlist-sub'>
                         <span className="chatlist-subtitle">Direct Messages</span>
                         <ul>
-                            {conversations.map(convo => <ChatlistItem key={uniqueId + Math.random()} conversation={convo} />)}
+                            {allDms.map(convo => <ChatlistItem key={uniqueId + Math.random()} conversation={convo} />)}
                         </ul>
                         <button onClick={this.onCreateDM}>Create New DM</button>
                     </div>
