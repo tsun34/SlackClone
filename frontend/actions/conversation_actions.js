@@ -32,10 +32,11 @@ export const getConversations = () => (dispatch) => {
     ))
 }
 
-export const createConversation = (conversation) => (dispatch) => {
-    return ConversationUtil.createConversation(conversation).then((conversation) => (
-        dispatch(receiveConversation(conversation))
-    ))
+export const createConversation = (conversation, redirect) => (dispatch) => {
+    return ConversationUtil.createConversation(conversation).then((newConversation) => {
+        dispatch(receiveConversation(newConversation));
+        dispatch(() => redirect(newConversation.conversation.id))
+    })
 }
 
 export const deleteConversation = (conversationId) => (dispatch) => {

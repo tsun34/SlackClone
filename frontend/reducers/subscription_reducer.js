@@ -8,13 +8,10 @@ const subscriptionReducer = (state ={}, action) => {
     switch (action.type){
         case RECEIVE_SUBSCRIPTION:
             nextState = Object.assign({}, state);
-            nextState = [action.subscription.id] = action.subscription;
+            nextState[action.subscription.id] = action.subscription;
             return nextState;
         case RECEIVE_SUBSCRIPTIONS:
-            for (let i=0; i<action.subscriptions.length; i++){
-                let subscription = action.subscriptions[i];
-                nextState[subscription.id] = subscription;
-            };
+            nextState = Object.assign({}, action.subscriptions);
             return nextState;
         case RECEIVE_CONVERSATION:
             nextState = action.data.subscriptions;

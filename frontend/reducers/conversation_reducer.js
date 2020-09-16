@@ -5,8 +5,8 @@ const conversationReducer = (conversation = {}, action) => {
     let nextConvo = Object.assign({}, conversation);
     switch (action.type){
         case RECEIVE_CONVERSATION:
-            const convoId = Object.keys(action.data.conversation)[0];
-            nextConvo[convoId] = action.data.conversation[convoId];
+            const convoId = action.data.conversation.id;
+            nextConvo[convoId] = action.data.conversation;
             return nextConvo;
         case RECEIVE_CONVERSATIONS:
             nextConvo = action.conversations;

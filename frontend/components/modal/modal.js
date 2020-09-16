@@ -26,7 +26,6 @@ class Modal extends React.Component {
                 modalContent = null;
                 break;
         }
-        console.log("render modal?")
         return (
             <div className="modal-open-background">
                 <div className="modal-container" style={{ width: width }}>

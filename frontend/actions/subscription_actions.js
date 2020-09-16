@@ -8,8 +8,8 @@ export const getSubscriptions = (conversation_id) => (dispatch) => {
 };
 
 export const createSubscription = (subscription) => (dispatch) => {
-    return SubscriptionUtil.createSubscription(subscription).then((subscription) => (
-        dispatch(receiveSubscription(subscription))
+    return SubscriptionUtil.createSubscription(subscription).then((newSubscription) => (
+        dispatch(receiveSubscription(newSubscription))
     ))
 };
 

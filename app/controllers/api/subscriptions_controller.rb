@@ -2,7 +2,7 @@ class Api::SubscriptionsController < ApplicationController
 
     def index
         if params[:conversation_id]
-            @subscriptions = Subscription.where(conversation_id: params[:conversation_id].includes(:user))
+            @subscriptions = Subscription.where(conversation_id: params[:conversation_id]).includes(:user)
         end
         if @subscriptions
             render :index

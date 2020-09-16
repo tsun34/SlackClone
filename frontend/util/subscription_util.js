@@ -7,11 +7,11 @@ export const getSubscriptions = (conversation_id) => (
 )
 
 // create a new subscription
-export const createSubscription = (sub) => (
+export const createSubscription = (subscription) => (
     $.ajax({
         method: 'POST',
         url: '/api/subscriptions',
-        data: {sub}
+        data: {subscription}
     })
 )
 

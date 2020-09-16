@@ -29,9 +29,19 @@ class NewDMForm extends React.Component {
             is_private: this.state.isPrivate,
             admin_id: this.props.currentUser.id,
             conversation_type: 'direct'
-        }).then(() => {
+        }, (id) => {
+            this.setState({newChannelId: id});
+        })
+        .then(() => {
             this.props.getConversations();
             this.props.closeModal();
+            this.state.selected.map((user) => {
+                this.props.createSubscription({
+                    user_id: user,
+                    conversation_id: this.state.newChannelId 
+                })
+                this.props.getSubscriptions(this.state.newChannelId);
+            })
         })
         this.setState({
             name: '',
@@ -70,10 +80,8 @@ class NewDMForm extends React.Component {
     }
 
     handleSelect(userId){
-        console.log("before: ", this.state.selected)
         if(!this.state.selected.includes(userId)){
             let newSelected = [...this.state.selected, userId]
-            console.log("after: ", newSelected)
             this.setState({selected: newSelected})
         }
     }
