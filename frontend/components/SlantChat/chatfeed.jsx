@@ -14,6 +14,7 @@ class Chatfeed extends React.Component{
                 this.props.getAllUsers();
             }}
         )
+        this.onAddMember = this.onAddMember.bind(this);
     }
 
     componentDidMount(){
@@ -25,6 +26,11 @@ class Chatfeed extends React.Component{
         if (prevProps.match.params.conversationId !== this.props.match.params.conversationId){
             this.props.getConversation(this.props.match.params.conversationId);
         }
+    }
+
+    onAddMember(e){
+        e.preventDefault();
+        this.props.openModal('add_member');
     }
 
 
@@ -50,7 +56,7 @@ class Chatfeed extends React.Component{
                             </ul>
                         </div>
                         <ul className='channel-info-links'>
-                            <li><a href="#"><i className='fas fa-user-plus'></i></a></li>
+                            <li onClick={this.onAddMember}><i className='fas fa-user-plus'></i></li>
                             <li><a href="#"><i className='fas fa-info-circle'></i></a></li>
                         </ul>
                     </div>  

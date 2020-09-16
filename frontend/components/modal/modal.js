@@ -1,6 +1,7 @@
 import React from 'react';
 import NewConvoFormContainer from '../SlantChat/Convo/convoform_container';
 import NewDMFormContainer from '../SlantChat/Convo/dmform_container';
+import AddMemberFormContainer from '../SlantChat/Member/addmember_form_container';
 
 class Modal extends React.Component {
     constructor(props) {
@@ -20,6 +21,10 @@ class Modal extends React.Component {
                 break;
             case 'new_dm':
                 modalContent = <NewDMFormContainer />;
+                width = "500px";
+                break;
+            case 'add_member':
+                modalContent = <AddMemberFormContainer />;
                 width = "500px";
                 break;
             default:

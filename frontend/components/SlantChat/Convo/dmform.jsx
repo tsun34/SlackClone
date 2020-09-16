@@ -1,5 +1,4 @@
 import React from "react";
-import { useStore } from "react-redux";
 import { Redirect } from 'react-router-dom';
 
 import SearchItem from '../Member/searchitem';

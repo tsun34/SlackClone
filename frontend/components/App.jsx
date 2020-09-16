@@ -14,46 +14,6 @@ import ModalContainer from './modal/modal_container';
 class App extends React.Component{
     constructor(props){
         super(props);
-        // this.state = {
-        //     currentUser: null,
-        //     allConversations: [],
-        //     currentConversation:{
-        //         conversation: {},
-        //         users: [],
-        //         messages: []
-        //     }
-        // }
-    }    
-
-    // componentDidMount(){
-
-    // }
-
-    // updateApp(newConversation){
-    //     this.setState({
-    //         currentConversation: {
-    //             conversation: newConversation,
-    //             users: newConversation.users,
-    //             messages: newConversation.messages
-    //         }
-    //     })
-
-    // }
-
-    // getConversationData(id){
-    //     // fetch(`http://localhost:3000/conversations/${id}`)
-    //     // .then(response => response.json())
-    //     getConversation(id)
-    //     .then(result => {
-    //         this.setState({
-    //             currentConversation: {
-    //                 conversation: result.data,
-    //                 users: result.datat.attributes.users,
-    //                 messages: result.data.attributes.messages
-    //             }
-    //         })
-    //     })
-    // }
 
     render() {
         return (
