@@ -55,31 +55,26 @@ class NewConvoForm extends React.Component{
         if (!this.state.newChannelId){
 
             return (
-                <div className="new-convo-form">
-                    <h2>Create a New Channel</h2>
-                    <form onSubmit={this.handleClick}>
-    
-                        <label>Name
-                            <br/>
-                            <input type="text" onChange={this.onChangeUpdate('name')} placeholder="# e.g.spooky-honk" value={this.state.name}/>
+                <form className="new-convo-form" onSubmit={this.handleClick}>
+                    <h2 className='convo-form-name'>Create a New Channel</h2>
+                    <p className='convo-form-note'>Channels are where your geese comunicates. They're best when organized around a topic - #honking, for example.</p>
+
+                    <label className='convo-form-label'>Name</label>
+                    <input className='convo-form-input' type="text" onChange={this.onChangeUpdate('name')} placeholder="# e.g.spooky-honk" value={this.state.name}/>
+                    
+                    <label className='convo-form-label'>Description (optional)</label>
+                    <textarea className='convo-form-input' onChange={this.onChangeUpdate('description')} value={this.state.description} ></textarea>
+                    
+                    <label className='convo-form-label'>Make private</label>
+                    <div className='convo-form-private'>
+                        <p className='convo-form-note'>When a channel is set to private, it can only be viewed or joined by invitation.</p>
+                        <label className="switch">
+                            <input type="checkbox" onClick={this.handlePrivate}/>
+                            <span className="slider round"></span>
                         </label>
-                        <br/>
-                        <label>Description (optional)
-                            <br/>
-                            <textarea onChange={this.onChangeUpdate('description')} value={this.state.description} ></textarea>
-                        </label>
-                        <br/>
-                        <label>Make private
-                            <p>When a channel is set to private, it can only be viewed or joined by invitation.</p>
-                            <label className="switch">
-                                <input type="checkbox" onClick={this.handlePrivate}/>
-                                <span className="slider round"></span>
-                            </label>
-                        </label>
-                        <br/>
-                        <button>Create</button>
-                    </form>
-                </div>
+                    </div>
+                    <button className='convo-form-submit'>Create</button>
+                </form>
             )
         }else{
             return (<Redirect to={`/client/conversations/${this.state.newChannelId}`}/>)

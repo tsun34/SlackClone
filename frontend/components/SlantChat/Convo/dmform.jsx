@@ -104,7 +104,7 @@ class NewDMForm extends React.Component {
 
             return (
                 <div className="new-dm-form">
-                <h2>Create a New DM</h2>
+                <h2 className='convo-form-name'>Create a New DM</h2>
                 <form onSubmit={this.handleClick}>
                     <input type="text" onChange={this.onChangeUpdate('name')} placeholder="# e.g.spooky-honk" value={this.state.name} />
                     <div>

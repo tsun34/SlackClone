@@ -19,15 +19,15 @@ class Modal extends React.Component {
         switch (modal) {
             case 'new_channel':
                 modalContent = <NewConvoFormContainer/>;
-                width = "500px";
+                width = "600px";
                 break;
             case 'new_dm':
                 modalContent = <NewDMFormContainer />;
-                width = "500px";
+                width = "600px";
                 break;
             case 'add_member':
                 modalContent = <AddMemberFormContainer channelName={this.props.modal.modalProps.channelName} channelId={this.props.modal.modalProps.channelId} />;
-                width = "500px";
+                width = "600px";
                 break;
             default:
                 modalContent = null;

@@ -76,7 +76,7 @@ class AddMemberForm extends React.Component{
 
         return (
             <form>
-                <h2>Add People</h2>
+                <h2 className='convo-form-name'>Add People</h2>
                 <h3>{this.props.channelName}</h3>
                 <div>
                     {this.renderSelected()}
