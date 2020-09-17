@@ -9,7 +9,7 @@ class SlantHome extends React.Component{
     render(){
         if (this.props.currentUser){
             return(
-                <Redirect to={`/client/conversations/11`}/>
+                <Redirect to={`/client/conversations/9`}/>
             )
         }else{
 
