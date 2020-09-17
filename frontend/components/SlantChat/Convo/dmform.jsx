@@ -117,10 +117,10 @@ class NewDMForm extends React.Component {
                     <div className='dm-search-selected'>
                         {(this.state.selected.length>0) ? this.renderSelected() : ''}
                     </div>
-                        <div className="dm-form-search">
-                            <input className='convo-form-input' type="text" value={this.state.searchStr} onChange={this.handleSearchInput} placeholder="Enter a username"/>
-                            <button className="dm-form-submit">Go</button>
-                        </div>
+                    <div className="dm-form-search">
+                        <input className='convo-form-input' type="text" value={this.state.searchStr} onChange={this.handleSearchInput} placeholder="Enter a username"/>
+                        <button className="dm-form-submit">Go</button>
+                    </div>
                     <div className="dm-search-results pointer">
                             {users.length === 0 ? 
                             (<SearchItem message="No matches"/>)

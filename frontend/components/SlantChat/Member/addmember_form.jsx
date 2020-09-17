@@ -75,17 +75,17 @@ class AddMemberForm extends React.Component{
         })
 
         return (
-            <form>
+            <form className='new-convo-form'>
                 <h2 className='convo-form-name'>Add People</h2>
-                <h3>{this.props.channelName}</h3>
-                <div>
-                    {this.renderSelected()}
-                    <div>
-                        <input type="text" value={this.state.searchStr} onChange={this.handleSearchInput} placeholder="Enter a username" />
-                        <button onSubmit={this.handleClick}>Go</button>
-                    </div>
+                <h3 className='add-member-channel-name'>#{this.props.channelName}</h3>
+                <div className='dm-search-selected'>
+                    {(this.state.selected.length>0) ? this.renderSelected() : ''}
                 </div>
-                <div>
+                <div className='dm-form-search'>
+                    <input className='convo-form-input' type="text" value={this.state.searchStr} onChange={this.handleSearchInput} placeholder="Enter a username" />
+                    <button className='dm-form-submit' onSubmit={this.handleClick}>Go</button>
+                </div>
+                <div className='dm-search-results pointer'>
                     <div>
                         {users.length === 0 ?
                             (<SearchItem message="No matches" />)
