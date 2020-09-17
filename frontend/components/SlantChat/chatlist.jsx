@@ -10,6 +10,10 @@ class Chatlist extends React.Component{
         this.onCreateDM = this.onCreateDM.bind(this);
     }
 
+    componentDidMount(){
+        this.props.getConversations();
+    }
+
 
     onCreateChannel(e){
         e.preventDefault();

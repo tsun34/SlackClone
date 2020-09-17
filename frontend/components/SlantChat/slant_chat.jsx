@@ -3,20 +3,34 @@ import {Route} from 'react-router-dom';
 
 import GreetingContainer from '../Greeting/GreetingContainer';
 import ChatlistContainer from './chatlist_container';
-import ChatlistItem from './chatlist_item';
 import ChatfeedContainer from './chatfeed_container';
-import ChatWebSocket from './chat_websocket';
+import { uniqueId } from '../../util/chat_util';
 
 
 class SlantChat extends React.Component{
 
-    componentDidMount(){
-        this.props.getConversations();
-        this.props.getAllUsers();
+    constructor(props){
+        super(props);
     }
+
+    componentDidMount(){
+        // console.log('chat fetching all convos')
+        // this.props.getConversations();
+        // this.props.getAllUsers();
+        // console.log(this.props.conversations)
+    }
+
+    // componentDidUpdate(prevProps) {
+    //     console.log('update?')
+    //     if (prevProps.match.params.conversationId !== this.props.match.params.conversationId) {
+    //         this.props.getConversations();
+    //         this.props.getAllUsers();
+    //         // this.props.getConversation(this.props.match.params.conversationId);
+    //     }
+    // }
     
     render(){
-        const conversations = Object.values(this.props.conversations); 
+        // const conversations = Object.values(this.props.conversations); 
 
         return (        
             <div className='main-slant'>
@@ -26,10 +40,11 @@ class SlantChat extends React.Component{
             <div className="slant-chat">
                 <div className='channel-side'>
 
-                    <ChatlistContainer conversations={conversations}/>
+                    <ChatlistContainer />
                 </div>
                 <div className='chat-side'>
-                    <Route path="/client/conversations/:conversationId" component={ChatfeedContainer}/>
+                    <ChatfeedContainer />
+                    {/* <Route path="/client/conversations/:conversationId" component={ChatfeedContainer}/> */}
                 </div>
             </div>
 

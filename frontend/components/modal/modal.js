@@ -9,7 +9,9 @@ class Modal extends React.Component {
     }
 
     render() {
+        console.log('open modal?')
         let { modal } = this.props.modal ?? {};
+        
         if (!modal) {
             return null;
         }
@@ -24,7 +26,7 @@ class Modal extends React.Component {
                 width = "500px";
                 break;
             case 'add_member':
-                modalContent = <AddMemberFormContainer />;
+                modalContent = <AddMemberFormContainer channelName={this.props.modal.modalProps.channelName} channelId={this.props.modal.modalProps.channelId} />;
                 width = "500px";
                 break;
             default:

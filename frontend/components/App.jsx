@@ -1,28 +1,32 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
-import SlantHome from './SlantHome/slant_home';
-import SlantChat from './SlantChat/slant_chat';
-import { getConversation } from '../util/conversation_util';
+import SlantHomeContainer from './SlantHome/slant_home_container';
 import SlantChatContainer from './SlantChat/slant_chat_container';
-import { getCurrentUser } from '../util/session_api_util';
 import ModalContainer from './modal/modal_container';
 
 
 class App extends React.Component{
     constructor(props){
         super(props);
-
+    }
+    
     render() {
         return (
             <div className='slant-display'>
+                <Switch>
+                    <ProtectedRoute exact path='/client' component={SlantChatContainer}/>
+                    <ProtectedRoute exact path='/client/conversations/:conversationId' component={SlantChatContainer} />
+                    <AuthRoute exact path='/login' component={LoginFormContainer} />
+                    <AuthRoute exact path='/signup' component={SignupFormContainer} />
 
-                <Route exact path='/' component={SlantHome} />
-                <AuthRoute path='/login' component={LoginFormContainer} />
-                <AuthRoute path='/signup' component={SignupFormContainer} />
-                <ProtectedRoute path='/client' component={SlantChatContainer}/>
+                    <Route exact path='/' component={SlantHomeContainer} />
+                    <Redirect to='/' />
+                    {/* <ProtectedRoute path='/client' component={SlantChatContainer}/> */}
+                
+                </Switch>
                 <ModalContainer />
             </div>
         )

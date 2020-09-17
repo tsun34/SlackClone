@@ -3,7 +3,9 @@ import { OPEN_MODAL, CLOSE_MODAL, OPEN_MODAL_WITH_PROPS } from '../actions/modal
 const ModalReducer = (state = null, action) => {
     switch (action.type) {
         case OPEN_MODAL:
-            return { modal: action.modal };
+            return { 
+                modal: action.modal,
+             };
         case CLOSE_MODAL:
             return null;
         case OPEN_MODAL_WITH_PROPS:

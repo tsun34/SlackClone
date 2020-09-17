@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 
 class NewConvoForm extends React.Component{
     constructor(props){
@@ -7,6 +8,7 @@ class NewConvoForm extends React.Component{
             name: '',
             description: '',
             isPrivate: false,
+            newChannelId: null
         }
         this.handleClick = this.handleClick.bind(this);
         this.onChangeUpdate = this.onChangeUpdate.bind(this);
@@ -15,14 +17,19 @@ class NewConvoForm extends React.Component{
 
     handleClick(e){
         e.preventDefault();
+        const newConvo = {
+          name: this.state.name,
+          description: this.state.description,
+          is_private: this.state.isPrivate,
+          admin_id: this.props.currentUser.id,
+          conversation_type: "channel",
+        };
 
-        this.props.createConversation({
-            name: this.state.name,
-            description: this.state.description,
-            is_private: this.state.isPrivate,
-            admin_id: this.props.currentUser.id,
-            conversation_type: 'channel'
-        }).then(()=>{
+        this.props.createConversation(
+            newConvo, (id) => {
+                this.setState({newChannelId: id});
+            }
+        ).then(()=>{
             this.props.getConversations();
             this.props.closeModal();
         })
@@ -45,33 +52,38 @@ class NewConvoForm extends React.Component{
     }
 
     render(){
-        return (
-            <div className="new-convo-form">
-                <h2>Create a New Channel</h2>
-                <form onSubmit={this.handleClick}>
+        if (!this.state.newChannelId){
 
-                    <label>Name
-                        <br/>
-                        <input type="text" onChange={this.onChangeUpdate('name')} placeholder="# e.g.spooky-honk" value={this.state.name}/>
-                    </label>
-                    <br/>
-                    <label>Description (optional)
-                        <br/>
-                        <textarea onChange={this.onChangeUpdate('description')} value={this.state.description} ></textarea>
-                    </label>
-                    <br/>
-                    <label>Make private
-                        <p>When a channel is set to private, it can only be viewed or joined by invitation.</p>
-                        <label className="switch">
-                            <input type="checkbox" onClick={this.handlePrivate}/>
-                            <span className="slider round"></span>
+            return (
+                <div className="new-convo-form">
+                    <h2>Create a New Channel</h2>
+                    <form onSubmit={this.handleClick}>
+    
+                        <label>Name
+                            <br/>
+                            <input type="text" onChange={this.onChangeUpdate('name')} placeholder="# e.g.spooky-honk" value={this.state.name}/>
                         </label>
-                    </label>
-                    <br/>
-                    <button>Create</button>
-                </form>
-            </div>
-        )
+                        <br/>
+                        <label>Description (optional)
+                            <br/>
+                            <textarea onChange={this.onChangeUpdate('description')} value={this.state.description} ></textarea>
+                        </label>
+                        <br/>
+                        <label>Make private
+                            <p>When a channel is set to private, it can only be viewed or joined by invitation.</p>
+                            <label className="switch">
+                                <input type="checkbox" onClick={this.handlePrivate}/>
+                                <span className="slider round"></span>
+                            </label>
+                        </label>
+                        <br/>
+                        <button>Create</button>
+                    </form>
+                </div>
+            )
+        }else{
+            return (<Redirect to={`/client/conversations/${this.state.newChannelId}`}/>)
+        }
     }
 }
 

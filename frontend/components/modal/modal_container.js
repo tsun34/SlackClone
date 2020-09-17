@@ -4,7 +4,7 @@ import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProp = ({ ui }) => {
     return {
-        modal: ui.modal
+        modal: ui.modal,
     };
 };
 

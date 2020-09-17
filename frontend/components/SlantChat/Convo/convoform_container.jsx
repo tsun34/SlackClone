@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return{
         closeModal: () => dispatch(closeModal()),
-        createConversation: (convo) => dispatch(createConversation(convo)),
+        createConversation: (convo, redirect) => dispatch(createConversation(convo, redirect)),
         getConversations: () => dispatch(getConversations())
     }
 };

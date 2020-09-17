@@ -11,31 +11,42 @@ class Chatfeed extends React.Component{
             {channel: 'ConversationChannel'},
             {received: (msg) => {
                 this.props.receiveMessage(msg);
-                this.props.getAllUsers();
+                // this.props.getAllUsers();
             }}
         )
         this.onAddMember = this.onAddMember.bind(this);
     }
 
     componentDidMount(){
-        this.props.getConversation(this.props.match.params.conversationId);
-  
+        console.log('mount?')
+        this.props.getConversations();
+        this.props.getConversation(this.props.conversationId);
+        this.props.getAllUsers();
     }
 
     componentDidUpdate(prevProps){
+        console.log('update?', prevProps)
         if (prevProps.match.params.conversationId !== this.props.match.params.conversationId){
             this.props.getConversation(this.props.match.params.conversationId);
+            this.props.getAllUsers();
         }
+
     }
+
 
     onAddMember(e){
         e.preventDefault();
-        this.props.openModal('add_member');
+        const conversation = this.props.conversation
+        this.props.openModalWithProps('add_member',{
+           channelName: conversation.name,
+           channelId: conversation.id 
+        });
     }
 
 
     render(){
-        const conversation = this.props.conversation;
+
+        const conversation = this.props.conversation || {name: '', description: '', id: this.props.conversationId};
         const oldMessages = this.props.convoMessages;
         const createMessage = this.props.createMessage;
         const currentUser = this.props.currentUser;
@@ -43,7 +54,7 @@ class Chatfeed extends React.Component{
         if (!oldMessages){
             return null;
         }
-        // console.log(this.props)
+        console.log(this.props)
         return (
             <>  
                 <div className='channel-log'>
@@ -67,6 +78,7 @@ class Chatfeed extends React.Component{
                 <Chatform createMessage={createMessage} convoId={conversation.id} convoName={conversation.name} authorId={currentUser.id} />
             </>
         ) 
+
     }
 }
 

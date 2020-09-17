@@ -1,30 +1,33 @@
 import { connect } from "react-redux";
+import {withRouter} from 'react-router';
 import Chatfeed from './chatfeed';
-import { allMessages, selectConvoMessages } from "../../reducers/selector";
-import { getConversation } from "../../actions/conversation_actions";
+import { getConversation, getConversations } from "../../actions/conversation_actions";
 import {createMessage, receiveMessage} from '../../actions/message_actions';
 import {getAllUsers} from '../../actions/session_actions';
-import { openModal } from '../../actions/modal_actions';
+import { openModal, openModalWithProps } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    const conversation = state.entities.conversations[ownProps.match.params.conversationId];
+    const conversationId = ownProps.match.params.conversationId;
+    const conversation = state.entities.conversations[ownProps.match.params.conversationId]
     return {
-        // messages: allMessages(state)
-        conversation,
-        convoMessages: Object.keys(state.entities.messages).map(id => state.entities.messages[id]), //selectConvoMessages(state, conversation),
+        convoMessages: Object.keys(state.entities.messages).map(id => state.entities.messages[id]), 
         currentUser: state.entities.users[state.session.id],
-        users: state.entities.users
+        users: state.entities.users,
+        conversationId: conversationId , 
+        conversation: conversation
     }
 };
 const mapDispatchToProps = (dispatch) => {
     return {
         getConversation: id => dispatch(getConversation(id)),
+        getConversations: () => dispatch(getConversations()),
         createMessage: (message) => dispatch(createMessage(message)),
         receiveMessage: (message) => dispatch(receiveMessage(message)),
         getAllUsers: () => dispatch(getAllUsers()),
-        openModal: (modal) => dispatch(openModal(modal))
+        openModal: (modal) => dispatch(openModal(modal)),
+        openModalWithProps: (modal, modalProps) => dispatch(openModalWithProps(modal, modalProps))
     }
 };
 const ChatfeedContainer = connect(mapStateToProps, mapDispatchToProps)(Chatfeed);
 
-export default ChatfeedContainer;
+export default withRouter(ChatfeedContainer);

@@ -75,14 +75,14 @@ class AddMemberForm extends React.Component{
         })
 
         return (
-            <form onSubmit={this.handleClick}>
+            <form>
                 <h2>Add People</h2>
                 <h3>{this.props.channelName}</h3>
                 <div>
                     {this.renderSelected()}
                     <div>
                         <input type="text" value={this.state.searchStr} onChange={this.handleSearchInput} placeholder="Enter a username" />
-                        <button>Go</button>
+                        <button onSubmit={this.handleClick}>Go</button>
                     </div>
                 </div>
                 <div>
