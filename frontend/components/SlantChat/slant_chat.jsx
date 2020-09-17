@@ -38,11 +38,11 @@ class SlantChat extends React.Component{
                 <GreetingContainer />
             </nav>
             <div className="slant-chat">
-                <div className='channel-side'>
+                <div className='channel-side '>
 
                     <ChatlistContainer />
                 </div>
-                <div className='chat-side'>
+                <div className='chat-side '>
                     <ChatfeedContainer />
                     {/* <Route path="/client/conversations/:conversationId" component={ChatfeedContainer}/> */}
                 </div>

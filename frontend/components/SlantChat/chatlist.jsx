@@ -43,7 +43,7 @@ class Chatlist extends React.Component{
                     <img src={currentUserAvatar} alt=""/>
                 </div>
 
-                <div className="chatlist">
+                <div className="chatlist ">
                     <div className="chatlist-sub">
                         <span className="chatlist-subtitle">Channels</span>
                         <ul>

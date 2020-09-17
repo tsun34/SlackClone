@@ -1,7 +1,7 @@
 .channel-log{
     display: flex;
     flex-direction: column;
-    flex: 7;
+    height: calc(100% - 140px);
 }
 
 .channel-info{
@@ -49,6 +49,7 @@
 
 .channel-form{
     min-height: 100px;
+    z-index: 10;
     flex: 1;
     border: 1px solid white;
     border-radius: 4px;
@@ -78,4 +79,10 @@
 
 .channel-form-links > button:hover{
     opacity: 50%;
+}
+
+.channel-content{
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }

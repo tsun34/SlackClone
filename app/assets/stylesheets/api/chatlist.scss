@@ -43,12 +43,11 @@
 }
 
 .chatlist{
-    // height:calc(100vh-60px);
-    // height: auto;
+    overflow-y: scroll;
+    height: calc(100% - 111px);
     padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
 }
 
 .chatlist-sub{

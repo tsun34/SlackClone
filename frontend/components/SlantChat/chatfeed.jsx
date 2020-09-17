@@ -71,7 +71,7 @@ class Chatfeed extends React.Component{
                             <li><a href="#"><i className='fas fa-info-circle'></i></a></li>
                         </ul>
                     </div>  
-                    <ul className='channel-content'>
+                    <ul className='channel-content '>
                         {oldMessages.map(msg => <ChatMessage key={msg.id} message={msg} author={allUsers[msg.author_id]}/>)}
                     </ul>
                 </div>
