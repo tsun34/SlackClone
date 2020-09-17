@@ -19,12 +19,21 @@ class NewDMForm extends React.Component {
         this.handleSearchInput = this.handleSearchInput.bind(this);
         this.renderSelected = this.renderSelected.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
+        this.createDMName = this.createDMName.bind(this);
+    }
+
+
+    createDMName(list){
+        return list.map((userId) => {
+            return this.props.allUsers[userId].full_name
+        }).join(', ')
     }
 
     handleClick(e) {
         e.preventDefault();
+        const dmName = this.createDMName(this.state.selected); 
         this.props.createConversation({
-            name: this.state.name,
+            name: dmName,
             is_private: this.state.isPrivate,
             admin_id: this.props.currentUser.id,
             conversation_type: 'direct'
@@ -103,26 +112,21 @@ class NewDMForm extends React.Component {
         if (!this.state.newChannelId){
 
             return (
-                <div className="new-dm-form">
-                <h2 className='convo-form-name'>Create a New DM</h2>
-                <form onSubmit={this.handleClick}>
-                    <input type="text" onChange={this.onChangeUpdate('name')} placeholder="# e.g.spooky-honk" value={this.state.name} />
-                    <div>
-                        {this.renderSelected()}
-                        <div>
-                            <input type="text" value={this.state.searchStr} onChange={this.handleSearchInput} placeholder="Enter a username"/>
-                            <button>Go</button>
-                        </div>
+                <form className="new-convo-form" onSubmit={this.handleClick}>
+                    <h2 className='convo-form-name'>Create a New DM</h2>
+                    <div className='dm-search-selected'>
+                        {(this.state.selected.length>0) ? this.renderSelected() : ''}
                     </div>
-                    <div>
-                        <div>
+                        <div className="dm-form-search">
+                            <input className='convo-form-input' type="text" value={this.state.searchStr} onChange={this.handleSearchInput} placeholder="Enter a username"/>
+                            <button className="dm-form-submit">Go</button>
+                        </div>
+                    <div className="dm-search-results pointer">
                             {users.length === 0 ? 
                             (<SearchItem message="No matches"/>)
                             :(users)}
-                        </div>
                     </div>
                 </form>
-            </div>
            )
         }else{
             return (<Redirect to={`/client/conversations/${this.state.newChannelId}`}/>)    
