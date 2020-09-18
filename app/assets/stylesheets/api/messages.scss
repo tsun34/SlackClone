@@ -32,6 +32,11 @@
     margin: 8px;
 }
 
+.chat-message-content > span{
+    // word-wrap: break-word;
+    overflow-wrap: break-word;
+}    
+
 .chat-message-header{
     display: flex;
     flex-direction: row;

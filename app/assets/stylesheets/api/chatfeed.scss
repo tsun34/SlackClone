@@ -84,6 +84,6 @@
 .channel-content{
     width: 100%;
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: wrap;
     height: calc(100% - 165px);
 }

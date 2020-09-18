@@ -25,18 +25,22 @@ class InfoPanel extends React.Component{
                 return this.props.allUsers[sub.user_id]
             });
             return (
-                <div>
-                    <div>
-                        <h3>Details</h3>
-                        <button onClick={this.props.closeInfoPanel}>x </button>
+                <div className='info-panel'>
+                    <button className='close-button' onClick={this.props.closeInfoPanel}><i className='fas fa-times'></i> </button>
+                    <div className='info-panel-header info-panel-subsection'>
+                        <h3 className='info-panel-title'>Details</h3>
                     </div>
-                    <div>
-                        <h3>About</h3>
-                        <span>{this.props.convoName}</span>
-                        <span>{this.props.convoDescription}</span>
+                    <div className='info-panel-subsection '>
+                        <h3 className='info-panel-title'>About</h3>
+                        <div className='info-panel-about'>
+                            <span>Topic: </span>
+                            <p>#{this.props.convoName}</p>
+                            <span>Description: </span>
+                            <p>{this.props.convoDescription}</p>
+                        </div>
                     </div>
-                    <ul>
-                        <h3>Members</h3>
+                    <ul className='info-panel-subsection'>
+                        <h3 className='info-panel-title'>Members</h3>
                         {members.map(member => <MemberInfo key={member.id} member={member}/>)}
                     </ul>
                 </div>
