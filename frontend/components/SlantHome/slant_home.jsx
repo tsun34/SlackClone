@@ -49,7 +49,7 @@ class SlantHome extends React.Component{
                     </section>
                     <section id='slant-description' className='slant-section slant-description'>
                         <img className='slant-chat-img' src={window.slantchatURL} alt=""/>
-                        <div>
+                        <div className="slant-section-text">
                             <h1 className='slant-home-title'>Bring your geese together in channels</h1>
                             <span className='slant-home-body'>A channel is the place for everything related to a project, topic or team. Every goose in a channel sees the same honks and stays on the same page.</span>
                             <p className='slant-home-note'><Link to='/login'>Learn more about channels <i className='fas fa-arrow-right'></i></Link></p>
