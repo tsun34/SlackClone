@@ -18,9 +18,9 @@ class SlantHome extends React.Component{
                     <nav className='home-nav'>
                     <ul className='home-nav-info'>
                     <li><Link to='/'> <img className='home-nav-logo' src={window.slantWhiteURL} alt="slant logo"/></Link></li>                
-                    <li><a href="#">Why Slant?</a></li>
-                    <li><a href="#">Github</a></li>
-                    <li><a href="#">Linkedin</a></li>
+                    <li><a href="#slant-description">Why Slant?</a></li>
+                    <li><a href="https://github.com/tsun34">Github</a></li>
+                    <li><a href="https://www.linkedin.com/in/tingxiao-charlotte-sun-0633339b/">Linkedin</a></li>
                     </ul>
                     <ul className='home-nav-session'>
                             <li>
@@ -31,7 +31,7 @@ class SlantHome extends React.Component{
                             </li>
                         </ul>
                     </nav>
-                    <section className='slant-intro'>
+                    <section className='slant-intro slant-section'>
                         <div>
                             <h1 className='slant-home-title'>Slant is where honk happens</h1>
                             <span className='slant-home-body'>With channels in Slant, you and your geese know where to go honk groundkeepers, share stolen items and stay in the crime loop.</span>
@@ -40,13 +40,21 @@ class SlantHome extends React.Component{
                                     <Link to='/login'>TRY FOR FREE</Link>
                                 </li>
                                 <li>
-                                    <a href="#">CONTACT US</a>
+                                    <a href="https://www.linkedin.com/in/tingxiao-charlotte-sun-0633339b/">CONTACT US</a>
                                 </li>
                             </ul>
                             <p className='slant-home-note'>Need to create a workspace? <Link to="/login" className='slant-home-note-link'> Get started</Link></p>
                         </div>
                         <img className='slant-home-img' src={window.slantHome1URL} alt='slant homepage'/>
+                    </section>
+                    <section id='slant-description' className='slant-section slant-description'>
+                        
+                    </section>
+                    <section className='slant-section slant-contact'>
                     </section>  
+                    <section className='slant-footer'>
+
+                    </section>
     
                 </div>
             )

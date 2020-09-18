@@ -57,15 +57,24 @@
     border-radius: 4px;
 }
 
-.slant-intro{
-    background-color: #d6e27c;
+.slant-section{
     height: 500px;
-    width: 100vw;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     padding: 50px;
+}
+
+.slant-intro{
+    background-color: #d6e27c;
+    // height: 500px;
+    // width: 100vw;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-evenly;
+    // align-items: center;
+    // padding: 50px;
 }
 
 .slant-intro > div{
@@ -127,4 +136,18 @@
     font-family: 'Lato';
     font-size: 14px;
     text-align: center;
+}
+
+.slant-description{
+    background-color: #e3dfc5;
+}
+
+.slant-contact{
+    background-color: #738201;
+    height: 250px;
+}
+
+.slant-footer{
+    height: 100px;
+    
 }
