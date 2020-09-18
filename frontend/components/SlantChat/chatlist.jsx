@@ -45,18 +45,24 @@ class Chatlist extends React.Component{
 
                 <div className="chatlist ">
                     <div className="chatlist-sub">
-                        <span className="chatlist-subtitle">Channels</span>
+                        <div className='chatlist-header'>
+                            <span className="chatlist-subtitle">Channels</span>
+                            <button className='create-convo-symbol' onClick={this.onCreateChannel}><i className='fas fa-plus'></i></button>
+                        </div>
                         <ul>
                             {allChannels.map(convo => <ChatlistItem key={uniqueId+Math.random()} conversation={convo} />)}
                         </ul>
-                        <button onClick={this.onCreateChannel}>Create New Channel</button>
+                        <button className="create-convo-words" onClick={this.onCreateChannel}><i className='fas fa-plus'></i> Create New Channel</button>
                     </div>
                     <div className='chatlist-sub'>
-                        <span className="chatlist-subtitle">Direct Messages</span>
+                        <div className='chatlist-header'>
+                            <span className="chatlist-subtitle">Direct Messages</span>
+                            <button className='create-convo-symbol' onClick={this.onCreateDM}><i className='fas fa-plus'></i></button>
+                        </div>
                         <ul>
                             {allDms.map(convo => <ChatlistItem key={uniqueId + Math.random()} conversation={convo} />)}
                         </ul>
-                        <button onClick={this.onCreateDM}>Create New DM</button>
+                        <button className='create-convo-words' onClick={this.onCreateDM}><i className='fas fa-plus'></i> Create New DM</button>
                     </div>
                 </div>
 

@@ -55,6 +55,12 @@
     flex-direction: column;
 }
 
+.chatlist-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .chatlist-subtitle{
     font-size: 14px;
     font-family: 'Lato';
@@ -65,7 +71,7 @@
 .chatlist-item{
     font-size: 14px;
     font-family: 'Lato';
-    padding: 5px 10px;
+    padding: 5px 15px;
     color:#4d3722;
 }
 
@@ -75,3 +81,20 @@
 // .chatlist-item.current, {
 //     font-weight: bold;
 // } 
+
+.create-convo-words{
+    padding: 5px 10px;
+    color: #4d3722;
+}
+
+.create-convo-symbol{
+    font-size: 14px;
+    font-family: 'Lato';
+    color: #4d3722;
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+.create-convo-words:hover, .create-convo-symbol:hover{
+    background-color: #d6e27c;
+}
