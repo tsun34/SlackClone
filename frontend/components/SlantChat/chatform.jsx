@@ -40,11 +40,10 @@ class Chatform extends React.Component{
     render(){
         return(
             <form className='channel-form' id='channel-form' onSubmit={this.handleSubmit}>
-                <textarea id="" row='3' value={this.state.body} onChange={this.updateBody} placeholder={`Send a message to ${this.state.conversation_name}`} required></textarea>
+                <input id=""  value={this.state.body} onChange={this.updateBody} placeholder={`Send a message to ${this.state.conversation_name}`} required></input>
                 <ul className='channel-form-links'>
                     <button><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
                 </ul>
-                {/* <ChatToolbar/> */}
             </form>
         )
 
