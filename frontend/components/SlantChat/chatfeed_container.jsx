@@ -5,6 +5,7 @@ import { getConversation, getConversations } from "../../actions/conversation_ac
 import {createMessage, receiveMessage} from '../../actions/message_actions';
 import {getAllUsers} from '../../actions/session_actions';
 import { openModal, openModalWithProps } from '../../actions/modal_actions';
+import {openInfoPanel} from '../../actions/infopanel_actions';
 
 const mapStateToProps = (state, ownProps) => {
     const conversationId = ownProps.match.params.conversationId;
@@ -14,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
         currentUser: state.entities.users[state.session.id],
         users: state.entities.users,
         conversationId: conversationId , 
-        conversation: conversation
+        conversation: conversation,
+        infopanel: state.ui.infopanel
     }
 };
 const mapDispatchToProps = (dispatch) => {
@@ -25,7 +27,8 @@ const mapDispatchToProps = (dispatch) => {
         receiveMessage: (message) => dispatch(receiveMessage(message)),
         getAllUsers: () => dispatch(getAllUsers()),
         openModal: (modal) => dispatch(openModal(modal)),
-        openModalWithProps: (modal, modalProps) => dispatch(openModalWithProps(modal, modalProps))
+        openModalWithProps: (modal, modalProps) => dispatch(openModalWithProps(modal, modalProps)),
+        openInfoPanel: () => dispatch(openInfoPanel())
     }
 };
 const ChatfeedContainer = connect(mapStateToProps, mapDispatchToProps)(Chatfeed);

@@ -3,6 +3,8 @@ import { Route } from 'react-router-dom';
 
 import ChatMessage from './chatmessage';
 import Chatform from './chatform';
+import InfoPanelContainer from './Infopanel/infopanel_container';
+
 
 class Chatfeed extends React.Component{
     constructor(props){
@@ -15,17 +17,18 @@ class Chatfeed extends React.Component{
             }}
         )
         this.onAddMember = this.onAddMember.bind(this);
+        this.showInfoPanel = this.showInfoPanel.bind(this);
     }
 
     componentDidMount(){
-        console.log('mount?')
+        // console.log('mount?')
         this.props.getConversations();
         this.props.getConversation(this.props.conversationId);
         this.props.getAllUsers();
     }
 
     componentDidUpdate(prevProps){
-        console.log('update?', prevProps)
+        // console.log('update?', prevProps)
         if (prevProps.match.params.conversationId !== this.props.match.params.conversationId){
             this.props.getConversation(this.props.match.params.conversationId);
             this.props.getAllUsers();
@@ -43,6 +46,10 @@ class Chatfeed extends React.Component{
         });
     }
 
+    showInfoPanel(e){
+        e.preventDefault();
+        this.props.openInfoPanel();
+    }
 
     render(){
 
@@ -54,10 +61,11 @@ class Chatfeed extends React.Component{
         if (!oldMessages){
             return null;
         }
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <>  
-                <div className='channel-log'>
+            <div className='channel-log'>
+
                     <div className='channel-info'>
                         <div className='channel-info-text'>
                             <a href="">{conversation.name}</a>
@@ -68,14 +76,18 @@ class Chatfeed extends React.Component{
                         </div>
                         <ul className='channel-info-links'>
                             <li onClick={this.onAddMember}><i className='fas fa-user-plus'></i></li>
-                            <li><a href="#"><i className='fas fa-info-circle'></i></a></li>
+                            <li onClick={this.showInfoPanel}><i className='fas fa-info-circle'></i></li>
                         </ul>
                     </div>  
                     <ul className='channel-content '>
                         {oldMessages.map(msg => <ChatMessage key={msg.id} message={msg} author={allUsers[msg.author_id]}/>)}
                     </ul>
-                </div>
                 <Chatform createMessage={createMessage} convoId={conversation.id} convoName={conversation.name} authorId={currentUser.id} />
+            </div>
+            <div>
+                {/* {console.log(this.props.infopanel)} */}
+                {this.props.infopanel ? <InfoPanelContainer convoId={conversation.id} convoName={conversation.name} convoDescription={conversation.description} /> : null}
+            </div>
             </>
         ) 
 

@@ -46,6 +46,7 @@ class SlantChat extends React.Component{
                     <ChatfeedContainer />
                     {/* <Route path="/client/conversations/:conversationId" component={ChatfeedContainer}/> */}
                 </div>
+                
             </div>
 
         </div>)

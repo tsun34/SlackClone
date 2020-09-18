@@ -7,6 +7,7 @@ import {getAllUsers} from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => ({
     conversations: selectAllConversations(state),
+    
 });
 // // console.log('state chat: ', state)
 // // console.log('ownProps chat: ', ownProps)
