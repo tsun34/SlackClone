@@ -85,9 +85,7 @@ class Chatfeed extends React.Component{
                     </ul>
                 <Chatform createMessage={createMessage} convoId={conversation.id} convoName={conversation.name} authorId={currentUser.id} />
             </div>
-            <div>
-                {this.props.infopanel ? <InfoPanelContainer subscriptions={this.props.subscriptions} convoId={conversation.id} convoName={conversation.name} convoDescription={conversation.description} /> : null}
-            </div>
+            {this.props.infopanel ? <InfoPanelContainer subscriptions={this.props.subscriptions} convoId={conversation.id} convoName={conversation.name} convoDescription={conversation.description} /> : null}
             </>
         ) 
 

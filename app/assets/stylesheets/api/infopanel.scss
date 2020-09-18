@@ -1,5 +1,6 @@
 .info-panel{
     min-width: 350px;
+    height: calc(100%-40px);
     border-left: 1px solid silver;
     display: flex;
     flex-direction: column;
@@ -7,6 +8,7 @@
     color: #4d3722;
     font-size: 20px;
     padding: 10px 0;
+    overflow-y: scroll;
 }
 
 .info-panel-header{
@@ -20,6 +22,8 @@
     border-bottom: 1px solid silver;
     padding: 15px 20px;
 }
+
+
 
 .info-panel-title{
     font-size: 18px;

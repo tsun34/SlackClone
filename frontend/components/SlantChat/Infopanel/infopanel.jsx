@@ -15,6 +15,7 @@ class InfoPanel extends React.Component{
             const members = this.props.subscriptions.map((sub) => {
                 return this.props.allUsers[sub.user_id]
             });
+            
             return (
                 <div className='info-panel'>
                     <button className='close-button' onClick={this.props.closeInfoPanel}><i className='fas fa-times'></i> </button>
