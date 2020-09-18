@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class SessionForm extends React.Component{
 
@@ -57,7 +58,7 @@ class SessionForm extends React.Component{
         const linkText = (this.props.formType == 'Sign Up') ? 'Already have an account?' : 'Looking to create an account instead?'; 
         return (
             <div className="session-page">
-                <img src={window.slantWhiteURL} alt="slant-logo" className='session-page-logo'/>
+                <Link to='/'><img src={window.slantWhiteURL} alt="slant-logo" className='session-page-logo' /></Link>
                 <form className='session-form' onSubmit={this.handleSubmit}>
                     { (this.props.errors.length)>0? this.renderErrors() : null}
                     <h1 className='session-form-title'>{this.props.formType} to your workspace</h1>
