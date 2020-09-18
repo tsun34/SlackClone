@@ -13,24 +13,8 @@ class SlantChat extends React.Component{
         super(props);
     }
 
-    componentDidMount(){
-        // console.log('chat fetching all convos')
-        // this.props.getConversations();
-        // this.props.getAllUsers();
-        // console.log(this.props.conversations)
-    }
 
-    // componentDidUpdate(prevProps) {
-    //     console.log('update?')
-    //     if (prevProps.match.params.conversationId !== this.props.match.params.conversationId) {
-    //         this.props.getConversations();
-    //         this.props.getAllUsers();
-    //         // this.props.getConversation(this.props.match.params.conversationId);
-    //     }
-    // }
-    
     render(){
-        // const conversations = Object.values(this.props.conversations); 
 
         return (        
             <div className='main-slant'>
@@ -44,7 +28,6 @@ class SlantChat extends React.Component{
                 </div>
                 <div className='chat-side '>
                     <ChatfeedContainer />
-                    {/* <Route path="/client/conversations/:conversationId" component={ChatfeedContainer}/> */}
                 </div>
                 
             </div>

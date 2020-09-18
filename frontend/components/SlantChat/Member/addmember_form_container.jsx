@@ -4,12 +4,8 @@ import { createSubscription, getSubscriptions } from "../../../actions/subscript
 import { closeModal } from "../../../actions/modal_actions";
 
 const mapStateToProps = (state, ownProps) => {
-    // console.log(ownProps)
-    // const channelId = ownProps.match.params.conversationId;
-    // const channelName = state.entities.conversations[ownProps.match.params.conversationId];
+
     return {
-        // channelId,
-        // channelName,
         allUsers: state.entities.users,
         allSubs: state.entities.subscriptions
     }

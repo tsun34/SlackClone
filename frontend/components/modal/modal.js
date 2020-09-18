@@ -9,7 +9,6 @@ class Modal extends React.Component {
     }
 
     render() {
-        console.log('open modal?')
         let { modal } = this.props.modal ?? {};
         
         if (!modal) {

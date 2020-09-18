@@ -6,6 +6,8 @@ import {createMessage, receiveMessage} from '../../actions/message_actions';
 import {getAllUsers} from '../../actions/session_actions';
 import { openModal, openModalWithProps } from '../../actions/modal_actions';
 import {openInfoPanel} from '../../actions/infopanel_actions';
+import { getSubscriptions } from '../../actions/subscription_actions';
+
 
 const mapStateToProps = (state, ownProps) => {
     const conversationId = ownProps.match.params.conversationId;
@@ -16,7 +18,9 @@ const mapStateToProps = (state, ownProps) => {
         users: state.entities.users,
         conversationId: conversationId , 
         conversation: conversation,
-        infopanel: state.ui.infopanel
+        infopanel: state.ui.infopanel,
+        subscriptions: Object.values(state.entities.subscriptions),
+
     }
 };
 const mapDispatchToProps = (dispatch) => {
@@ -28,7 +32,9 @@ const mapDispatchToProps = (dispatch) => {
         getAllUsers: () => dispatch(getAllUsers()),
         openModal: (modal) => dispatch(openModal(modal)),
         openModalWithProps: (modal, modalProps) => dispatch(openModalWithProps(modal, modalProps)),
-        openInfoPanel: () => dispatch(openInfoPanel())
+        openInfoPanel: () => dispatch(openInfoPanel()),
+        getSubscriptions: (convoId) => dispatch(getSubscriptions(convoId))
+
     }
 };
 const ChatfeedContainer = connect(mapStateToProps, mapDispatchToProps)(Chatfeed);

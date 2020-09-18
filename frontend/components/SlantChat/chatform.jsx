@@ -1,6 +1,4 @@
 import React from 'react';
-import {uniqueId} from '../../util/chat_util';
-// import ChatToolbar from './chatform_toolbar';
 
 class Chatform extends React.Component{
     constructor(props){

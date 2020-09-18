@@ -13,7 +13,6 @@ class Chatfeed extends React.Component{
             {channel: 'ConversationChannel'},
             {received: (msg) => {
                 this.props.receiveMessage(msg);
-                // this.props.getAllUsers();
             }}
         )
         this.onAddMember = this.onAddMember.bind(this);
@@ -21,17 +20,19 @@ class Chatfeed extends React.Component{
     }
 
     componentDidMount(){
-        // console.log('mount?')
         this.props.getConversations();
         this.props.getConversation(this.props.conversationId);
         this.props.getAllUsers();
+        this.props.getSubscriptions(this.props.conversationId);
+
     }
 
     componentDidUpdate(prevProps){
-        // console.log('update?', prevProps)
         if (prevProps.match.params.conversationId !== this.props.match.params.conversationId){
             this.props.getConversation(this.props.match.params.conversationId);
             this.props.getAllUsers();
+            this.props.getSubscriptions(this.props.conversationId);
+
         }
 
     }
@@ -58,10 +59,10 @@ class Chatfeed extends React.Component{
         const createMessage = this.props.createMessage;
         const currentUser = this.props.currentUser;
         const allUsers = this.props.users;
+        const memberCount = this.props.subscriptions.length;
         if (!oldMessages){
             return null;
         }
-        // console.log(this.props)
         return (
             <>  
             <div className='channel-log'>
@@ -70,7 +71,7 @@ class Chatfeed extends React.Component{
                         <div className='channel-info-text'>
                             <a href="">{conversation.name}</a>
                             <ul>
-                                <li><a href="#"><i className='fas fa-thumbtack'></i></a></li>
+                                <li><a href="#"><i className='fas fa-user'></i> {memberCount}</a></li>
                                 <li><a href="#">{conversation.description}</a></li>
                             </ul>
                         </div>
@@ -85,8 +86,7 @@ class Chatfeed extends React.Component{
                 <Chatform createMessage={createMessage} convoId={conversation.id} convoName={conversation.name} authorId={currentUser.id} />
             </div>
             <div>
-                {/* {console.log(this.props.infopanel)} */}
-                {this.props.infopanel ? <InfoPanelContainer convoId={conversation.id} convoName={conversation.name} convoDescription={conversation.description} /> : null}
+                {this.props.infopanel ? <InfoPanelContainer subscriptions={this.props.subscriptions} convoId={conversation.id} convoName={conversation.name} convoDescription={conversation.description} /> : null}
             </div>
             </>
         ) 

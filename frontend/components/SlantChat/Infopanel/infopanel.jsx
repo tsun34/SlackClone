@@ -7,15 +7,6 @@ class InfoPanel extends React.Component{
         super(props);
     }
 
-    componentDidMount(){
-        this.props.getSubscriptions(this.props.convoId);
-    }
-
-    componentDidUpdate(prevProps){
-        if (prevProps.match.params.conversationId !== this.props.match.params.conversationId){
-            this.props.getSubscriptions(this.props.convoId);
-        }
-    }
 
     render(){
         if (!this.props.infoPanel) {

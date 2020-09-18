@@ -9,12 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
     conversations: selectAllConversations(state),
     
 });
-// // console.log('state chat: ', state)
-// // console.log('ownProps chat: ', ownProps)
-// return {
-//     test: 'test message'
-//     // conversationId: ownProps.match.params.conversationId
-// }
+
 
 const mapDispatchToProps = (dispatch) => ({
     getConversations: () => dispatch(getConversations()),
