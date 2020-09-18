@@ -43,22 +43,18 @@ class SlantHome extends React.Component{
                                     <a href="https://www.linkedin.com/in/tingxiao-charlotte-sun-0633339b/">CONTACT US</a>
                                 </li>
                             </ul>
-                            <p className='slant-home-note'>* This is a slack clone with The Untitled Goose game as theme inspiration. <Link to="/login" className='slant-home-note-link'> Get started</Link></p>
+                            <p className='slant-home-note'>*This is a slack clone project inspired by the Untitled Goose Game. <Link to="/login" className='slant-home-note-link'> Get started</Link></p>
                         </div>
                         <img className='slant-home-img' src={window.slantHome1URL} alt='slant homepage'/>
                     </section>
                     <section id='slant-description' className='slant-section slant-description'>
+                        <img className='slant-chat-img' src={window.slantchatURL} alt=""/>
                         <div>
-                            <img src="" alt=""/>
-                            <div>
-                                <h1 className='slant-home-title'>Bring your geese together in channels</h1>
-                                <span className='slant-home-body'>A channel is the place for everything related to a project, topic or team. Every goose in a channel sees the same honks and stays on the same page.</span>
-                                <p className='slant-home-note'><Link to='/login'>Learn more about channels <i className='fas fa-arrow-right'></i></Link></p>
-                            </div>
+                            <h1 className='slant-home-title'>Bring your geese together in channels</h1>
+                            <span className='slant-home-body'>A channel is the place for everything related to a project, topic or team. Every goose in a channel sees the same honks and stays on the same page.</span>
+                            <p className='slant-home-note'><Link to='/login'>Learn more about channels <i className='fas fa-arrow-right'></i></Link></p>
                         </div>
-                        <div>
-
-                        </div>
+          
                     </section>
                     <section className='slant-section slant-contact'>
                         <span className='slant-home-title'>Choose a better way to honk</span>

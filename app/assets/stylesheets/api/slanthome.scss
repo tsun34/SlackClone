@@ -49,7 +49,7 @@
 
 
 .home-nav-session-button{
-    background-color: #621d35;
+    background-color: #738201;
     width: 170px;
     height: 42px;
     color: white;
@@ -150,6 +150,17 @@
 
 .slant-description{
     background-color: #e3dfc5;
+    display: flex;
+    flex-direction: row;
+}
+
+.slant-chat-img{
+    width: 600px;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 100px;
+    box-shadow: 5px 5px 5px #5a6601;
 }
 
 .slant-contact{
