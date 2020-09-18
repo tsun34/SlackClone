@@ -24,6 +24,10 @@
     font-family: 'Lato';
 }
 
+.home-nav-info > li:hover{
+    color: dodgerblue;
+}
+
 .home-nav-info > li > a{
     padding: 16px;
 }
@@ -129,7 +133,8 @@
     width: 200px;
     height: 60px;
     border-radius: 4px;
-    border: 1px solid black;
+    border: 1px solid #738201;
+    color: #5a6601;
     padding: 20px 40px;
     margin: 20px 0px;
     font-weight: bold;
@@ -138,16 +143,45 @@
     text-align: center;
 }
 
+.slant-home-buttons > li:first-child{
+    background-color: #738201;
+    color: white
+}
+
 .slant-description{
     background-color: #e3dfc5;
 }
 
 .slant-contact{
     background-color: #738201;
+    color: white;
     height: 250px;
+    display: flex;
+    flex-direction: column;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235a6601' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    
+}
+
+.slant-contact > .slant-home-buttons > li{
+    color: white;
+    background-image: none;
+    border: 1px solid white;
+    margin: 0 10px;
+}
+
+.slant-contact > .slant-home-buttons > li:last-child{
+    background-color: white;
+    color: #738201;
 }
 
 .slant-footer{
-    height: 100px;
-    
+    height: 100px;      
+}
+
+.slant-footer > .home-nav-info{
+    margin: 0;
+}
+
+.slant-footer > .home-nav-info > li > a > i {
+    font-size: 28px;
 }

@@ -9,7 +9,7 @@ class SlantHome extends React.Component{
     render(){
         if (this.props.currentUser){
             return(
-                <Redirect to={`/client/conversations/9`}/>
+                <Redirect to={`/client/conversations/1`}/>
             )
         }else{
 
@@ -17,10 +17,10 @@ class SlantHome extends React.Component{
                 <div>
                     <nav className='home-nav'>
                     <ul className='home-nav-info'>
-                    <li><Link to='/'> <img className='home-nav-logo' src={window.slantWhiteURL} alt="slant logo"/></Link></li>                
-                    <li><a href="#slant-description">Why Slant?</a></li>
-                    <li><a href="https://github.com/tsun34">Github</a></li>
-                    <li><a href="https://www.linkedin.com/in/tingxiao-charlotte-sun-0633339b/">Linkedin</a></li>
+                        <li><Link to='/'> <img className='home-nav-logo' src={window.slantWhiteURL} alt="slant logo"/></Link></li>                
+                        <li><a href="#slant-description">Why Slant?</a></li>
+                        <li><a href="https://github.com/tsun34">Github</a></li>
+                        <li><a href="https://www.linkedin.com/in/tingxiao-charlotte-sun-0633339b/">Linkedin</a></li>
                     </ul>
                     <ul className='home-nav-session'>
                             <li>
@@ -43,17 +43,41 @@ class SlantHome extends React.Component{
                                     <a href="https://www.linkedin.com/in/tingxiao-charlotte-sun-0633339b/">CONTACT US</a>
                                 </li>
                             </ul>
-                            <p className='slant-home-note'>Need to create a workspace? <Link to="/login" className='slant-home-note-link'> Get started</Link></p>
+                            <p className='slant-home-note'>* This is a slack clone with The Untitled Goose game as theme inspiration. <Link to="/login" className='slant-home-note-link'> Get started</Link></p>
                         </div>
                         <img className='slant-home-img' src={window.slantHome1URL} alt='slant homepage'/>
                     </section>
                     <section id='slant-description' className='slant-section slant-description'>
-                        
+                        <div>
+                            <img src="" alt=""/>
+                            <div>
+                                <h1 className='slant-home-title'>Bring your geese together in channels</h1>
+                                <span className='slant-home-body'>A channel is the place for everything related to a project, topic or team. Every goose in a channel sees the same honks and stays on the same page.</span>
+                                <p className='slant-home-note'><Link to='/login'>Learn more about channels <i className='fas fa-arrow-right'></i></Link></p>
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
                     </section>
                     <section className='slant-section slant-contact'>
+                        <span className='slant-home-title'>Choose a better way to honk</span>
+                        <ul className='slant-home-buttons'>
+                            <li>
+                                <Link to='/login'>TRY FOR FREE</Link>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/tingxiao-charlotte-sun-0633339b/">CONTACT US</a>
+                            </li>
+                        </ul>
                     </section>  
                     <section className='slant-footer'>
-
+                        <ul className='home-nav-info'>
+                            <li><Link to='/'> <img className='home-nav-logo' src={window.slantWhiteURL} alt="slant logo" /></Link></li>
+                            <li><a href="#slant-description">Why Slant?</a></li>
+                            <li><a href="https://github.com/tsun34"><i className='fab fa-github'></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/tingxiao-charlotte-sun-0633339b/"><i className='fab fa-linkedin'></i></a></li>
+                        </ul>
                     </section>
     
                 </div>

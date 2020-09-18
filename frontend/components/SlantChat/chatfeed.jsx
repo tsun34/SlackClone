@@ -71,8 +71,8 @@ class Chatfeed extends React.Component{
                         <div className='channel-info-text'>
                             <a href="">{conversation.name}</a>
                             <ul>
-                                <li><a href="#"><i className='fas fa-user'></i> {memberCount}</a></li>
-                                <li><a href="#">{conversation.description}</a></li>
+                                <li onClick={this.showInfoPanel}><i className='fas fa-user'></i> {memberCount}</li>
+                                <li>{conversation.description}</li>
                             </ul>
                         </div>
                         <ul className='channel-info-links'>
