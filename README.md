@@ -1,6 +1,10 @@
 # Slant
 
-features i have done and features i wanna add
+Slant is a live chat web application with public channels and private direct messaging chats inspired by Slack.  
+
+Check out the live site: https://slant-slack.herokuapp.com/ 
+
+
 
 ## User Auth
 ### signup/login/logout
