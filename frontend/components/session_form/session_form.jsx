@@ -74,7 +74,7 @@ class SessionForm extends React.Component{
                     <button className='session-submit' type="submit">Continue</button>
                     
                 </form>
-                <button className='session-submit' onClick={this.handleDemo}> Continue as Goose</button>
+                <button className='session-submit' onClick={this.handleDemo}> Continue as Demo Goose</button>
                 <div className='session-links'>
                     <p>{linkText}</p>
                     <span>

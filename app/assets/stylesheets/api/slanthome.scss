@@ -50,15 +50,23 @@
 
 .home-nav-session-button{
     background-color: #738201;
-    width: 170px;
+    box-sizing: border-box;
     height: 42px;
     color: white;
     font-size: 14px;
     font-family: 'Lato';
     font-style: bold;
-    padding: 12px 16px;
     margin: 0 5px;
     border-radius: 4px;
+    padding: 12px 0;
+}
+
+.home-nav-session-button > a{
+    min-height: 42px;
+    min-width: 70px;
+    padding: 12px 16px;
+    border-radius: 4px;
+    flex-wrap: nowrap;
 }
 
 .slant-section{
@@ -72,7 +80,7 @@
 
 .slant-section-text{
     margin: 0 100px 0 50px;
-    padding: 0 50px;
+    max-height: 600px;
 }
 
 
@@ -105,7 +113,7 @@
 
 .slant-home-title{
     font-family: 'Pangolin';
-    font-size: 64px;
+    font-size: 4vw;
     font-weight: bold;
     letter-spacing: 5px;
     text-align: center;
@@ -114,7 +122,7 @@
 
 .slant-home-body{
     font-family: 'Pangolin';
-    font-size: 20px;
+    font-size: 1.5vw;
     letter-spacing: 2px;
     margin-bottom: 32px;
 }

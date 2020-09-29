@@ -9,7 +9,7 @@ class SlantHome extends React.Component{
     render(){
         if (this.props.currentUser){
             return(
-                <Redirect to={`/client/conversations/1`}/>
+                <Redirect to={`/client/conversations/9`}/>
             )
         }else{
 
@@ -23,16 +23,16 @@ class SlantHome extends React.Component{
                         <li><a href="https://www.linkedin.com/in/tingxiao-charlotte-sun-0633339b/">Linkedin</a></li>
                     </ul>
                     <ul className='home-nav-session'>
-                            <li>
-                                <Link className='home-nav-session-button' to='/signup'>Sign Up</Link>
+                            <li className='home-nav-session-button'>
+                                <Link  to='/signup'>Sign Up</Link>
                             </li>
-                            <li>
-                                <Link className='home-nav-session-button' to='/login'>Log In</Link>
+                            <li className='home-nav-session-button'>
+                                <Link  to='/login'>Log In</Link>
                             </li>
                         </ul>
                     </nav>
                     <section className='slant-intro slant-section'>
-                        <div>
+                        <div className='slant-section-text'>
                             <h1 className='slant-home-title'>Slant is where honk happens</h1>
                             <span className='slant-home-body'>With channels in Slant, you and your geese know where to go honk groundkeepers, share stolen items and stay in the crime loop.</span>
                             <ul className='slant-home-buttons'>
